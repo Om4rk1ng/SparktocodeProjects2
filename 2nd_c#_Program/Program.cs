@@ -54,6 +54,20 @@
             Console.WriteLine((a > b) || (b < a));
             Console.WriteLine(!(a > b));
 
+            //using if else statement in c#
+
+            if (a > b)
+            {
+                Console.WriteLine("it is true that" + a + "greater than" + b);
+            }
+            else if (b > a)
+            {
+                Console.WriteLine("it is true that" + b + "greater than" + a);
+            }
+            else
+            {
+                Console.WriteLine("both values are equal");
+            }
 
 
 

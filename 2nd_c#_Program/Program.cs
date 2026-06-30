@@ -69,7 +69,32 @@
                 Console.WriteLine("both values are equal");
             }
 
+            //using switch statement in c#
 
+            Console.WriteLine("welcome to our services");
+            Console.WriteLine("please choose desired service:");
+            Console.WriteLine("1.add new friend");
+            Console.WriteLine("2.manage friends");
+            Console.WriteLine("3.delete friend");
+
+            int choice = int.Parse(Console.ReadLine());
+
+            switch (choice)
+            {
+                case 1:
+                    Console.WriteLine("you have chosen to add new friend");
+                    break;
+                case 2:
+                    Console.WriteLine("you have chosen to manage friends");
+                    break;
+                case 3:
+                    Console.WriteLine("you have chosen to delete friend");
+                    break;
+                default:
+                    Console.WriteLine("invalid choice");
+                    break;
+
+            }
 
 
 

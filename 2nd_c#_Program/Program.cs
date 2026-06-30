@@ -16,6 +16,11 @@
             int age = int.Parse(Console.ReadLine());
             Console.WriteLine("your age is " + age);
 
+            //converting string to int using convert Convert.To"Datatype"() method
+            Console.Write("enter your weight please:");
+            string weightinput = Console.ReadLine();
+            double weight = Convert.ToDouble(weightinput);
+            Console.WriteLine("your weight is " + weight);
 
 
 

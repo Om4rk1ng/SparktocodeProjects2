@@ -40,7 +40,19 @@
             Console.WriteLine("the division of " + a + " and " + b + " is " + divresult);
             Console.WriteLine("the reminder of " + a + " and " + b + " is " + reminder);
 
+            // relational operators in c#
 
+            Console.WriteLine(a > b);
+            Console.WriteLine(a < b);
+            Console.WriteLine(a >= b);
+            Console.WriteLine(a <= b);
+            Console.WriteLine(a == b);
+            Console.WriteLine(a != b);
+
+            //boolean operators in c#
+            Console.WriteLine((a > b) && (b < a));
+            Console.WriteLine((a > b) || (b < a));
+            Console.WriteLine(!(a > b));
 
 
 

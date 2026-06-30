@@ -10,7 +10,13 @@
             string name = Console.ReadLine();
             Console.WriteLine("hello " + name);
 
-           
+            //coverting input value to another datatype using parser since input is always string
+
+            Console.Write("enter your age please:");
+            int age = int.Parse(Console.ReadLine());
+            Console.WriteLine("your age is " + age);
+
+
 
 
 

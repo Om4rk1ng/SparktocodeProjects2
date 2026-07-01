@@ -228,7 +228,27 @@
                     Console.WriteLine("Invalid operator");
                     break;
             }
-            
+
+
+            //task 11: Loan Eligibility System///////////////////////////////////////////////////////////
+
+            Console.WriteLine("Enter your age: ");
+            int applicantAge = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter your monthly income: ");
+            double monthlyIncome = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("do you have an existing loan (yes/no):  ");
+            string hasExistingLoan = Console.ReadLine();
+
+            if(applicantAge >= 21 && applicantAge <= 60 && monthlyIncome >= 400 && hasExistingLoan !="yes")
+            {
+                Console.WriteLine("You are eligible for the loan.");
+            }
+            else
+            {
+                Console.WriteLine("age out of range, income too low, or has an existing loan");
+            }
+
+
         }
     }
 }

@@ -14,7 +14,7 @@
             Console.Write("Name: " + Name + ", ");
             Console.Write("Age: " + Age + ", ");
             Console.Write("Height: " + Height + ", ");
-            Console.Write("Student: " + IsStudent + ", ");
+            Console.WriteLine("Student: " + IsStudent);
 
 
             //task 2: Rectangle Calculator///////////////////////////////////////////////////////////
@@ -27,11 +27,12 @@
             double area = length * width;
             double perimeter = 2 * (length + width);
 
-            Console.WriteLine("Area of the Rectangle with length: " + length + " and width " + width + " is" + area);
-            Console.WriteLine("perimeter of the Rectangle with length: " + length + " and width " + width + " is" + perimeter);
+            Console.WriteLine("Area of the Rectangle with length: " + length + " and width " + width + " is " + area);
+            Console.WriteLine("perimeter of the Rectangle with length: " + length + " and width " + width + " is " + perimeter);
 
             //task 3: Even or Odd Checker///////////////////////////////////////////////////////////
 
+            Console.WriteLine("enter whole number: ");
             int whole_number = Convert.ToInt32(Console.ReadLine());
 
             if (whole_number % 2 == 0)
@@ -45,10 +46,10 @@
 
             //task 4: Voting Eligibility///////////////////////////////////////////////////////////
 
-            Console.Write("Enter your age: ");
+            Console.WriteLine("Enter your age: ");
             int age = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("do you hold a valid national ID (Yes/No): ");
+            Console.WriteLine("do you hold a valid national ID (Yes/No): ");
             string hasID = Console.ReadLine();
 
             bool hasIDBool;

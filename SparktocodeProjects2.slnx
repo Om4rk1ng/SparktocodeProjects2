@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="2nd_c#_Program/2nd_c#_Program.csproj" Id="e65b3b10-bf00-48f6-9268-f82291eb2098" />
   <Project Path="app1/app1.csproj" />
+  <Project Path="C# Fundamentals - Part 1 task/C# Fundamentals - Part 1 task.csproj" Id="3fe38efa-245e-4f3b-ac42-55e35a134993" />
 </Solution>

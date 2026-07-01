@@ -248,6 +248,74 @@
                 Console.WriteLine("age out of range, income too low, or has an existing loan");
             }
 
+            //task 12: Shipping Cost Calculator///////////////////////////////////////////////////////////
+
+            Console.WriteLine("Enter the region code: ");
+            string regionCode = Console.ReadLine();
+            Console.WriteLine("Enter the weight of the package in kg: ");
+            double packageWeight = Convert.ToDouble(Console.ReadLine());
+            double bcost = 0;
+            double fcost = 0;
+            double extra=0;
+            switch (regionCode) { 
+            case "A":
+                    bcost=1.000;
+                    if (packageWeight > 5)
+                    {
+                        extra = 2.000;
+                        fcost+= extra;
+                        
+                    }
+                    else if (packageWeight > 10)
+                    {
+                        extra= 5.000;
+                        fcost += extra;
+                    }
+                    else
+                    {
+                        fcost = bcost;
+                    }
+                    break;
+            
+            case "B":
+                    bcost = 3.000;
+                    if (packageWeight > 5)
+                    {
+                        extra = 2.000;
+                        fcost += extra;
+
+                    }
+                    else if (packageWeight > 10)
+                    {
+                        extra = 5.000;
+                        fcost += extra;
+                    }
+                    else
+                    {
+                        fcost = bcost;
+                    }
+                    break;
+
+            case "C":
+                    bcost = 7.000;
+                    if (packageWeight > 5)
+                    {
+                        extra = 2.000;
+                        fcost += extra;
+                    }
+                    else if (packageWeight > 10)
+                    {
+                        extra = 5.000;
+                        fcost += extra;
+                    }
+                    else
+                    {
+                        fcost = bcost;
+                    }
+                    break;
+            }
+            Console.WriteLine("Shipping base cost: " + bcost + ", extra charge: " + extra + ", total shipping cost: " + fcost);
+
 
         }
     }

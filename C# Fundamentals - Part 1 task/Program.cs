@@ -16,6 +16,17 @@
             Console.WriteLine("Age: " + Age);
             Console.WriteLine("Height: " + Height);
             Console.WriteLine("Student: " + IsStudent);
+
+            
+            //task 2: Rectangle Calculator///////////////////////////////////////////////////////////
+            double length = Convert.ToDouble(Console.ReadLine());
+            double width = Convert.ToDouble(Console.ReadLine());
+            double area = length * width;
+            double perimeter = 2 * (length + width);
+            Console.WriteLine("Area of the Rectangle with length: "+length+" and width "+width+" is" + area);
+            Console.WriteLine("perimeter of the Rectangle with length: " + length + " and width " + width + " is" + perimeter);
+
+
         }
     }
 }

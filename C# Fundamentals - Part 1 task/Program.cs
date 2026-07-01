@@ -1,4 +1,6 @@
-﻿namespace C__Fundamentals___Part_1_task
+﻿using System.ComponentModel.Design;
+
+namespace C__Fundamentals___Part_1_task
 {
     internal class Program
     {
@@ -398,6 +400,51 @@
                 Console.WriteLine("final total: "+finalTotal);
             }
 
+            //task 15: University Admission Decision///////////////////////////////////////////////////////////
+            Console.WriteLine("enter program type: ");
+            string programType = Console.ReadLine();
+            Console.WriteLine("applicant's GPA: ");
+            double gpa = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("applicant's exam score: ");
+            double examScore = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("do you have extra curricular activities (yes/no): ");
+            string hasExtraCurricular = Console.ReadLine();
+            string admissionDecision = "";
+            switch (programType) {
+
+                case "S":
+                    if (gpa >= 3.0 && examScore >= 75)
+                    {
+                        admissionDecision="admitted";
+                    }
+                    else if(hasExtraCurricular == "yes") {
+                        
+                        admissionDecision="conditionally admitted";
+                        }
+                    else 
+                    { admissionDecision = "not admitted";
+                    }
+                    break;
+                    
+                case "A":
+                    if (gpa >= 2.5 && examScore >= 60)
+                    {
+                        admissionDecision = "admitted";
+                    }
+                    else if (hasExtraCurricular == "yes")
+                    {
+
+                        admissionDecision = "conditionally admitted";
+                    }
+                    else
+                    {
+                        admissionDecision = "not admitted";
+                    }
+                    break;
+                    default: Console.WriteLine("invalid program type"); break;
+            }
+
+            Console.WriteLine("admission: "+admissionDecision+", program type: "+programType);
 
         }
     }

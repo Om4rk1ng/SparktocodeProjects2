@@ -6,27 +6,41 @@
         {
             //Task 1: Personal Info Card
 
-            
-            string Name=Console.ReadLine();
-            int Age = Convert.ToInt32(Console.ReadLine());
-            double Height = Convert.ToDouble(Console.ReadLine());
-            bool IsStudent = Convert.ToBoolean(Console.ReadLine());
+            string Name="Omar";
+            int Age = 23;
+            double Height = 1.65;
+            bool IsStudent = true;
 
-            Console.WriteLine("Name: " + Name);
-            Console.WriteLine("Age: " + Age);
-            Console.WriteLine("Height: " + Height);
-            Console.WriteLine("Student: " + IsStudent);
+            Console.Write("Name: " + Name+", ");
+            Console.Write("Age: " + Age + ", ");
+            Console.Write("Height: " + Height + ", ");
+            Console.Write("Student: " + IsStudent + ", ");
 
             
             //task 2: Rectangle Calculator///////////////////////////////////////////////////////////
+            Console.WriteLine("Enter the length of the rectangle: ");
             double length = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("Enter the width of the rectangle: ");
             double width = Convert.ToDouble(Console.ReadLine());
+
             double area = length * width;
             double perimeter = 2 * (length + width);
+
             Console.WriteLine("Area of the Rectangle with length: "+length+" and width "+width+" is" + area);
             Console.WriteLine("perimeter of the Rectangle with length: " + length + " and width " + width + " is" + perimeter);
 
+            //task 3: Even or Odd Checker///////////////////////////////////////////////////////////
 
+            int whole_number = Convert.ToInt32(Console.ReadLine());
+
+            if (whole_number % 2 == 0) { 
+                    Console.WriteLine("The number " + whole_number + " is even.");
+            }
+            else
+            {
+                    Console.WriteLine("The number " + whole_number + " is odd.");
+            }
         }
     }
 }

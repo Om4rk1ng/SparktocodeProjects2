@@ -18,10 +18,10 @@
 
 
             //task 2: Rectangle Calculator///////////////////////////////////////////////////////////
-            Console.Write("Enter the length of the rectangle: ");
+            Console.WriteLine("Enter the length of the rectangle: ");
             double length = Convert.ToDouble(Console.ReadLine());
 
-            Console.Write("Enter the width of the rectangle: ");
+            Console.WriteLine("Enter the width of the rectangle: ");
             double width = Convert.ToDouble(Console.ReadLine());
 
             double area = length * width;

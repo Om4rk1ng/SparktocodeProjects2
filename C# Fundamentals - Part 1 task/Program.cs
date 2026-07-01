@@ -158,14 +158,14 @@
             double final_amount = 0;
             if (billAmount > 20 && isMember == "yes")
             {
-                 discount = 0.15;
-                 final_amount = billAmount * (1 - discount);
-                Console.WriteLine("original bill amount: "+billAmount+", discount amount: "+discount+", final bill amount: "+ final_amount);
+                discount = 0.15;
+                final_amount = billAmount * (1 - discount);
+                Console.WriteLine("original bill amount: " + billAmount + ", discount amount: " + discount + ", final bill amount: " + final_amount);
             }
             else
             {
                 final_amount = billAmount;
-                Console.WriteLine("original bill amount: " + billAmount +", final bill amount: " + final_amount);
+                Console.WriteLine("original bill amount: " + billAmount + ", final bill amount: " + final_amount);
 
 
             }
@@ -179,7 +179,7 @@
                 case 1: Console.WriteLine("sunday"); break;
                 case 2: Console.WriteLine("monday"); break;
                 case 3: Console.WriteLine("tuesday"); break;
-                case 4 : Console.WriteLine("wednesday"); break;
+                case 4: Console.WriteLine("wednesday"); break;
                 case 5: Console.WriteLine("thursday"); break;
                 case 6: Console.WriteLine("friday"); break;
                 case 7: Console.WriteLine("saturday"); break;
@@ -194,17 +194,18 @@
             Console.WriteLine("Enter an operator (+, -, *, /): ");
             string operatorInput = Console.ReadLine();
 
-            switch (operatorInput) { 
-            case "+":
+            switch (operatorInput)
+            {
+                case "+":
                     Console.WriteLine("Result: " + (firstNumber + secondNumber));
                     break;
-            case "-":
+                case "-":
                     Console.WriteLine("Result: " + (firstNumber - secondNumber));
                     break;
-            case "*":
+                case "*":
                     Console.WriteLine("Result: " + (firstNumber * secondNumber));
                     break;
-            case "/":
+                case "/":
                     if (secondNumber != 0)
                     {
                         Console.WriteLine("Result: " + (firstNumber / secondNumber));
@@ -214,7 +215,7 @@
                         Console.WriteLine("Cannot divide by zero");
                     }
                     break;
-            case "%":
+                case "%":
                     if (secondNumber != 0)
                     {
                         Console.WriteLine("Result: " + (firstNumber % secondNumber));
@@ -224,7 +225,7 @@
                         Console.WriteLine("Cannot divide by zero");
                     }
                     break;
-            default:
+                default:
                     Console.WriteLine("Invalid operator");
                     break;
             }
@@ -239,7 +240,7 @@
             Console.WriteLine("do you have an existing loan (yes/no):  ");
             string hasExistingLoan = Console.ReadLine();
 
-            if(applicantAge >= 21 && applicantAge <= 60 && monthlyIncome >= 400 && hasExistingLoan !="yes")
+            if (applicantAge >= 21 && applicantAge <= 60 && monthlyIncome >= 400 && hasExistingLoan != "yes")
             {
                 Console.WriteLine("You are eligible for the loan.");
             }
@@ -256,19 +257,20 @@
             double packageWeight = Convert.ToDouble(Console.ReadLine());
             double bcost = 0;
             double fcost = 0;
-            double extra=0;
-            switch (regionCode) { 
-            case "A":
-                    bcost=1.000;
+            double extra = 0;
+            switch (regionCode)
+            {
+                case "A":
+                    bcost = 1.000;
                     if (packageWeight > 5)
                     {
                         extra = 2.000;
-                        fcost+= extra;
-                        
+                        fcost += extra;
+
                     }
                     else if (packageWeight > 10)
                     {
-                        extra= 5.000;
+                        extra = 5.000;
                         fcost += extra;
                     }
                     else
@@ -276,8 +278,8 @@
                         fcost = bcost;
                     }
                     break;
-            
-            case "B":
+
+                case "B":
                     bcost = 3.000;
                     if (packageWeight > 5)
                     {
@@ -296,7 +298,7 @@
                     }
                     break;
 
-            case "C":
+                case "C":
                     bcost = 7.000;
                     if (packageWeight > 5)
                     {
@@ -316,6 +318,39 @@
             }
             Console.WriteLine("Shipping base cost: " + bcost + ", extra charge: " + extra + ", total shipping cost: " + fcost);
 
+            //task 13: Triangle Type Classifier///////////////////////////////////////////////////////////
+            Console.WriteLine("Enter the lengths of the three sides of the triangle: ");
+            Console.WriteLine("enter first side");
+            double side1 = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("enter second side");
+            double side2 = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("enter third side");
+            double side3 = Convert.ToDouble(Console.ReadLine());
+
+
+
+            if ((side1 + side2 > side3) || (side1 + side2 < side3) || (side1 + side2 > side3))
+            {
+                if (side1 == side3 && side2 == side3)
+                {
+                    Console.WriteLine("The triangle is Equilateral (all sides equal)");
+
+                }
+                else if (side1 == side2 || side1 == side3 || side2 == side3)
+                {
+                    Console.WriteLine("The triangle is Isosceles (exactly two sides equal)");
+                }
+                else
+                {
+                    Console.WriteLine("The triangle is Scalene (all sides different)");
+                }
+
+
+            }
+            else
+            {
+                Console.WriteLine("The given lengths do not form a valid triangle.");
+            }
 
         }
     }

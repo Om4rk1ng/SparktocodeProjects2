@@ -105,23 +105,23 @@
 
             Console.WriteLine("Enter temperature in Celsius: ");
             double celsius = Convert.ToDouble(Console.ReadLine());
-            
+
             double fahrenheit = (celsius * 9 / 5) + 32;
-            string weather="";
+            string weather = "";
             switch (celsius)
             {
                 case < 10:
-                    weather="Cold";
+                    weather = "Cold";
                     break;
                 case >= 10 and < 30:
-                    weather="Mild";
+                    weather = "Mild";
                     break;
                 case >= 30:
-                    weather="Hot";
+                    weather = "Hot";
                     break;
             }
 
-            Console.WriteLine("Temperature in Fahrenheit: " + fahrenheit + "and weather is "+ weather);
+            Console.WriteLine("Temperature in Fahrenheit: " + fahrenheit + "and weather is " + weather);
 
             //task 7: Movie Ticket Pricing///////////////////////////////////////////////////////////
 
@@ -132,10 +132,10 @@
 
             if (Age_group >= 0 && Age_group < 12)
             {
-                ageCategory="Children";
+                ageCategory = "Children";
                 ticketPrice = "2.000 OMR";
             }
-            else if( Age_group >=13 && Age_group <= 59)
+            else if (Age_group >= 13 && Age_group <= 59)
             {
                 ageCategory = "Adult";
                 ticketPrice = "5.000 OMR";
@@ -147,6 +147,28 @@
             }
 
             Console.WriteLine("Age Category: " + ageCategory + ", Ticket Price: " + ticketPrice);
+
+            //task 8: Restaurant Bill with Membership Discount///////////////////////////////////////////////////////////
+
+            Console.WriteLine("Enter the total bill amount: ");
+            int billAmount = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Are you a member of the restaurant's loyalty program? (Yes/No): ");
+            string isMember = Console.ReadLine();
+            double discount = 0;
+            double final_amount = 0;
+            if (billAmount > 20 && isMember == "yes")
+            {
+                 discount = 0.15;
+                 final_amount = billAmount * (1 - discount);
+                Console.WriteLine("original bill amount: "+billAmount+", discount amount: "+discount+", final bill amount: "+ final_amount);
+            }
+            else
+            {
+                final_amount = billAmount;
+                Console.WriteLine("original bill amount: " + billAmount +", final bill amount: " + final_amount);
+
+
+            }
 
         }
     }

@@ -185,7 +185,50 @@
                 case 7: Console.WriteLine("saturday"); break;
                 default: Console.WriteLine("Invalid day number"); break;
             }
+            //task 10: Mini Calculator///////////////////////////////////////////////////////////
 
+            Console.WriteLine("Enter first number: ");
+            int firstNumber = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter second number: ");
+            int secondNumber = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter an operator (+, -, *, /): ");
+            string operatorInput = Console.ReadLine();
+
+            switch (operatorInput) { 
+            case "+":
+                    Console.WriteLine("Result: " + (firstNumber + secondNumber));
+                    break;
+            case "-":
+                    Console.WriteLine("Result: " + (firstNumber - secondNumber));
+                    break;
+            case "*":
+                    Console.WriteLine("Result: " + (firstNumber * secondNumber));
+                    break;
+            case "/":
+                    if (secondNumber != 0)
+                    {
+                        Console.WriteLine("Result: " + (firstNumber / secondNumber));
+                    }
+                    else
+                    {
+                        Console.WriteLine("Cannot divide by zero");
+                    }
+                    break;
+            case "%":
+                    if (secondNumber != 0)
+                    {
+                        Console.WriteLine("Result: " + (firstNumber % secondNumber));
+                    }
+                    else
+                    {
+                        Console.WriteLine("Cannot divide by zero");
+                    }
+                    break;
+            default:
+                    Console.WriteLine("Invalid operator");
+                    break;
+            }
+            
         }
     }
 }

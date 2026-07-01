@@ -352,6 +352,53 @@
                 Console.WriteLine("The given lengths do not form a valid triangle.");
             }
 
+            //task 14: Online Store Checkout///////////////////////////////////////////////////////////
+
+            Console.WriteLine("Enter the product code: ");
+            string productCode = Console.ReadLine();
+            Console.WriteLine("Enter the quantity: ");
+            int quantity = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("do you have discount coupon (yes/no): ");
+            string hasDiscountCoupon = Console.ReadLine();
+            string productName = "";
+            double price = 0;
+            switch (productCode)
+            {
+                case "1":
+                    productName = "headphones";
+                    price = 8.500; break;
+                case "2":
+                    productName = "keyboard";
+                    price = 12.000; break;
+                case "3":
+                    productName = "mouse";
+                    price = 5.000; break;
+                default: Console.WriteLine("invalid product code"); break;
+            }
+
+            double subtotal = 0;
+            subtotal = price * quantity;
+
+            if (hasDiscountCoupon == "yes" && subtotal > 20)
+            {
+                double pdiscount = 0.10;
+                double finalTotal = subtotal * (1 - pdiscount);
+                double tax = 0.05;
+                finalTotal = finalTotal * (1 + tax);
+                Console.WriteLine("subtotal: " + subtotal);
+                Console.WriteLine("discount amount: " + pdiscount);
+                Console.WriteLine("tax: " + tax);
+                Console.WriteLine("final total: " + finalTotal);
+
+            }
+            else
+            {
+                double finalTotal = subtotal;
+                Console.WriteLine("subtotal: "+subtotal);
+                Console.WriteLine("final total: "+finalTotal);
+            }
+
+
         }
     }
 }

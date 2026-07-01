@@ -122,6 +122,32 @@
             }
 
             Console.WriteLine("Temperature in Fahrenheit: " + fahrenheit + "and weather is "+ weather);
+
+            //task 7: Movie Ticket Pricing///////////////////////////////////////////////////////////
+
+            Console.WriteLine("Enter your age: ");
+            int Age_group = Convert.ToInt32(Console.ReadLine());
+            string ticketPrice = "";
+            string ageCategory = "";
+
+            if (Age_group >= 0 && Age_group < 12)
+            {
+                ageCategory="Children";
+                ticketPrice = "2.000 OMR";
+            }
+            else if( Age_group >=13 && Age_group <= 59)
+            {
+                ageCategory = "Adult";
+                ticketPrice = "5.000 OMR";
+            }
+            else
+            {
+                ageCategory = "Senior";
+                ticketPrice = "3.000 OMR";
+            }
+
+            Console.WriteLine("Age Category: " + ageCategory + ", Ticket Price: " + ticketPrice);
+
         }
     }
 }

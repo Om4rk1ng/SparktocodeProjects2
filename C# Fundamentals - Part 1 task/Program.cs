@@ -101,7 +101,27 @@
                     break;
             }
 
+            //task 6: Temperature Converter///////////////////////////////////////////////////////////
 
+            Console.WriteLine("Enter temperature in Celsius: ");
+            double celsius = Convert.ToDouble(Console.ReadLine());
+            
+            double fahrenheit = (celsius * 9 / 5) + 32;
+            string weather="";
+            switch (celsius)
+            {
+                case < 10:
+                    weather="Cold";
+                    break;
+                case >= 10 and < 30:
+                    weather="Mild";
+                    break;
+                case >= 30:
+                    weather="Hot";
+                    break;
+            }
+
+            Console.WriteLine("Temperature in Fahrenheit: " + fahrenheit + "and weather is "+ weather);
         }
     }
 }

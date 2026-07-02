@@ -150,6 +150,23 @@ namespace c__fundamentals__part_2_task_2_loops_error_handling
 
             }
 
+            ///////Task 8  Sum of Even Numbers Only/////////////////////////////////////////////
+            ///
+
+            Console.WriteLine("enter a positive whole number: ");
+            int N = Convert.ToInt32(Console.ReadLine());
+            int evenSum = 0;
+
+            for (int i = 0; i <= N; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    evenSum += i;
+
+                }
+            }
+            Console.WriteLine("The sum of even numbers from 0 to " + N + " is " + evenSum);
+
 
 
 

@@ -59,6 +59,35 @@ namespace c__fundamentals__part_2_task_2_loops_error_handling
                 }
             }
 
+            ///////Task 5  Number Guessing Game/////////////////////////////////////////////
+            ///
+
+            int secretNumber = 42;
+            int guess = 0;
+            int counter = 0;
+
+            do
+            {
+                Console.WriteLine("Guess the secret number between 1 and 100: ");
+                guess = Convert.ToInt32(Console.ReadLine());
+                if (guess > 42 && guess == 100)
+                {
+                    Console.WriteLine("Too high");
+                }
+                else if (guess < 42 && guess == 0)
+                {
+                    Console.WriteLine("Too low");
+                }
+                else
+                {
+                    Console.WriteLine("you guessed correctly");
+                }
+                counter++;
+            }
+            while (guess != secretNumber);
+
+            Console.WriteLine("number of attempts: " + counter);
+
 
 
 

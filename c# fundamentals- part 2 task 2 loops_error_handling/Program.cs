@@ -39,9 +39,28 @@ namespace c__fundamentals__part_2_task_2_loops_error_handling
                 Console.WriteLine(m + " x " + i + " = " + (m * i));
             }
 
-            
+            ///////Task 4 Password Retry/////////////////////////////////////////////
+            ///
 
-            
+            string correctPassword = "Spark2026";
+            string userInput = " ";
+
+            while (userInput != correctPassword)
+            {
+                Console.WriteLine("Please enter the password: ");
+                userInput = Console.ReadLine();
+                if (userInput == correctPassword)
+                {
+                    Console.WriteLine("Access granted.");
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect password, try again.");
+                }
+            }
+
+
+
 
 
         }

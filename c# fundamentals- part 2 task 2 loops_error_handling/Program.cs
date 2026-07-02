@@ -210,6 +210,145 @@ namespace c__fundamentals__part_2_task_2_loops_error_handling
             Console.WriteLine("The sum of numbers from 0 to " + n + " is " + sum);
 
 
+
+
+
+
+            ///////Task 10   Simple ATM Simulation/////////////////////////////////////////////
+            ///
+
+
+            int correctPin = 1234;
+            double balance = 100.000;
+            int maxAttempts = 3;
+            bool isAuthenticated = false;
+
+
+            for (int attempt = 1; attempt <= maxAttempts; attempt++)
+            {
+                Console.Write("Enter your 4-digit PIN (Attempt " + attempt + "/" + maxAttempts + "): ");
+                try
+                {
+                    int enteredPin = Convert.ToInt32(Console.ReadLine());
+
+                    if (enteredPin == correctPin)
+                    {
+                        isAuthenticated = true;
+                        Console.WriteLine();
+                        Console.WriteLine("Access Granted. Welcome to your account!");
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Incorrect PIN.");
+                    }
+                }
+                catch (FormatException)
+                {
+
+                    Console.WriteLine("Invalid entry. Non-numeric input registered as a wrong attempt.");
+                }
+            }
+
+
+            if (!isAuthenticated)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Card Blocked. Please contact your bank branch.");
+            }
+            else
+            {
+
+                bool sessionActive = true;
+
+                while (sessionActive)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("=== ATM MAIN MENU ===");
+                    Console.WriteLine("1) Deposit");
+                    Console.WriteLine("2) Withdraw");
+                    Console.WriteLine("3) Check Balance");
+                    Console.WriteLine("4) Exit");
+                    Console.Write("Please select an option (1-4): ");
+
+                    int choice = 0;
+                    try
+                    {
+                        choice = Convert.ToInt32(Console.ReadLine());
+
+                        switch (choice)
+                        {
+                            case 1:
+                                try
+                                {
+                                    Console.Write("Enter the deposit amount (OMR): ");
+                                    double depositAmount = Convert.ToDouble(Console.ReadLine());
+
+                                    if (depositAmount <= 0)
+                                    {
+                                        Console.WriteLine("Error: Deposit amount must be positive.");
+                                    }
+                                    else
+                                    {
+                                        balance = balance + depositAmount;
+                                        Console.WriteLine("Successfully deposited " + depositAmount + " OMR.");
+                                        Console.WriteLine("Current Balance: " + balance + " OMR");
+                                    }
+                                }
+                                catch (FormatException)
+                                {
+                                    Console.WriteLine("Error: Invalid numeric amount entered.");
+                                }
+                                break;
+
+                            case 2:
+                                try
+                                {
+                                    Console.Write("Enter the withdrawal amount (OMR): ");
+                                    double withdrawAmount = Convert.ToDouble(Console.ReadLine());
+
+                                    if (withdrawAmount <= 0)
+                                    {
+                                        Console.WriteLine("Error: Withdrawal amount must be positive.");
+                                    }
+                                    else if (withdrawAmount > balance)
+                                    {
+                                        Console.WriteLine("Error: Insufficient funds. Your balance is lower than this amount.");
+                                    }
+                                    else
+                                    {
+                                        balance = balance - withdrawAmount;
+                                        Console.WriteLine("Successfully withdrew " + withdrawAmount + " OMR.");
+                                        Console.WriteLine("Current Balance: " + balance + " OMR");
+                                    }
+                                }
+                                catch (FormatException)
+                                {
+                                    Console.WriteLine("Error: Invalid numeric amount entered.");
+                                }
+                                break;
+
+                            case 3:
+                                Console.WriteLine("Your current balance is: " + balance + " OMR");
+                                break;
+
+                            case 4:
+                                Console.WriteLine();
+                                Console.WriteLine("Thank you for using our ATM services. Have a great day!");
+                                sessionActive = false;
+                                break;
+
+                            default:
+                                Console.WriteLine("Invalid selection. Please choose a number from 1 to 4.");
+                                break;
+                        }
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("Invalid input. Please choose a valid option number.");
+                    }
+                }
+            }
         }
     }
 }

@@ -209,11 +209,6 @@ namespace c__fundamentals__part_2_task_2_loops_error_handling
 
             Console.WriteLine("The sum of numbers from 0 to " + n + " is " + sum);
 
-
-
-
-
-
             ///////Task 10   Simple ATM Simulation/////////////////////////////////////////////
             ///
 

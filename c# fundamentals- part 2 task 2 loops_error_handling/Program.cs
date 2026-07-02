@@ -16,7 +16,20 @@ namespace c__fundamentals__part_2_task_2_loops_error_handling
                 Console.WriteLine(countdown);
             }
 
-            
+            ///////Task 2 Sum of Numbers 1 to N/////////////////////////////////////////////
+            ///
+
+            Console.WriteLine("enter a positive whole number: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+            int sum = 0;
+            for (int i = 1; i <= n; i++)
+            {
+                sum += i;
+
+            }
+            Console.WriteLine("The sum of numbers from 1 to " + n + " is " + sum);
+
+
         }
     }
 }

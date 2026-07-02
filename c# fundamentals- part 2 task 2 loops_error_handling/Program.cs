@@ -29,6 +29,20 @@ namespace c__fundamentals__part_2_task_2_loops_error_handling
             }
             Console.WriteLine("The sum of numbers from 1 to " + n + " is " + sum);
 
+            ///////Task 3 Multiplication Table/////////////////////////////////////////////
+            ///
+
+            Console.WriteLine("enter a number: ");
+            int m = Convert.ToInt32(Console.ReadLine());
+            for (int i = 1; i <= 10; i++)
+            {
+                Console.WriteLine(m + " x " + i + " = " + (m * i));
+            }
+
+            
+
+            
+
 
         }
     }

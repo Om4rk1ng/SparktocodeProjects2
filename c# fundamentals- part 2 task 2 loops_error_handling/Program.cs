@@ -167,6 +167,45 @@ namespace c__fundamentals__part_2_task_2_loops_error_handling
             }
             Console.WriteLine("The sum of even numbers from 0 to " + N + " is " + evenSum);
 
+            ///////Task 9  Validated Positive Number Input/////////////////////////////////////////////
+            ///
+            bool isValidInput = false;
+            sum = 0;
+            do
+            {
+                try
+                {
+                    Console.WriteLine("Please enter a positive whole number: ");
+                    n = Convert.ToInt32(Console.ReadLine());
+
+                    if (n <= 0)
+                    {
+
+                        Console.WriteLine("Invalid input. Please enter a positive whole number.");
+
+                    }
+                    else
+                    {
+                        isValidInput = true;
+
+                    }
+
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid integer.");
+                }
+
+
+
+            }
+            while (!isValidInput);
+
+            for (int i = 0; i <= n; ++i)
+            {
+
+                sum += i;
+            }
 
 
 

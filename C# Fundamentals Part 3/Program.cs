@@ -17,6 +17,15 @@
 
             Console.WriteLine("Absolute value of the subtraction result: " + SubResult);
 
+            ///////Task 2  Power & Root Explorer/////////////////////////////////////////////
+            ///
+            Console.WriteLine("Enter a number:");
+            double number = double.Parse(Console.ReadLine());
+            double powerresult = Math.Pow(number, number);
+            double squarreootresult = Math.Sqrt(number);
+
+            Console.WriteLine("Power result: " + powerresult);
+            Console.WriteLine("Squareroot result: " + squarreootresult);
 
         }
     }

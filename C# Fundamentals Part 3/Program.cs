@@ -232,6 +232,36 @@
 
 
 
+            ///////Task 12 - Birthday Insights/////////////////////////////////////////////
+            ///
+
+            Console.WriteLine("Enter your birthdate (yyyy-MM-dd):");
+
+            string birthdateInput = Console.ReadLine();
+            try
+            {
+                DateTime birthdate = DateTime.Parse(birthdateInput);
+
+                DayOfWeek dayofweek = birthdate.DayOfWeek;
+
+                DateTime today = DateTime.Today;
+
+                int age = today.Year - birthdate.Year;
+
+                if (today.Month < birthdate.Month || (today.Month == birthdate.Month && today.Day < birthdate.Day))
+                {
+                    age--;
+                }
+
+                Console.WriteLine("You were born on a " + dayofweek);
+                Console.WriteLine("You are " + age + " years old.");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Please ensure the date is in YYYY-MM-DD format.");
+
+            }
+
         }
     }
 }

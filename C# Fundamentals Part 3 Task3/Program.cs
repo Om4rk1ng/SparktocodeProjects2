@@ -91,7 +91,25 @@
                 Console.WriteLine("Your password is strong because it is atleast 8 characters and does not contain password.");
             }
 
+            ///////Task 7 - Clean Name Comparator/////////////////////////////////////////////
+            ///
 
+            Console.WriteLine("Enter the first name with spaces and different cases:");
+            string name1 = Console.ReadLine();
+            Console.WriteLine("Enter the second name with spaces and different cases:");
+            string name2 = Console.ReadLine();
+
+            string cleanedFirst = name1.Trim().ToUpper();
+            string cleanedSecond = name2.Trim().ToUpper();
+
+            if (cleanedFirst != cleanedSecond)
+            {
+                Console.WriteLine("No Match");
+            }
+            else
+            {
+                Console.WriteLine("Match");
+            }
 
 
         }

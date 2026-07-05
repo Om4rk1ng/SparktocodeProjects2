@@ -13,9 +13,9 @@
             Console.WriteLine("Enter the second number:");
             int num2 = int.Parse(Console.ReadLine());
 
-            int SubResult= Math.Abs(num2 - num1);
+            int SubResult = Math.Abs(num2 - num1);
 
-            Console.WriteLine("Absolute value of the subtraction result: " +SubResult);
+            Console.WriteLine("Absolute value of the subtraction result: " + SubResult);
 
 
             ///////Task 2  Power & Root Explorer/////////////////////////////////////////////
@@ -49,11 +49,32 @@
             int freeTrialDays = int.Parse(Console.ReadLine());
 
             DateTime todayDate = DateTime.Today;
-            DateTime enddate= todayDate.AddDays(freeTrialDays);
+            DateTime enddate = todayDate.AddDays(freeTrialDays);
 
             Console.WriteLine("Your subscription will end on: " + enddate.ToString("yyyy-MM-dd"));
 
-           
+            ///////Task 5 - Grade Rounding System/////////////////////////////////////////////
+            ///
+
+            Console.WriteLine("Enter your raw grade:");
+            double grade = double.Parse(Console.ReadLine());
+
+            double roundedGrade = Math.Round(grade);
+            string passfailresult = "";
+            if (roundedGrade >= 60)
+            {
+                passfailresult = "Pass";
+
+            }
+            else
+            {
+                passfailresult = "Fail";
+            }
+
+            Console.WriteLine("Rounded Grade: " + roundedGrade +", Result: "+passfailresult);
+
+
+
         }
     }
 }

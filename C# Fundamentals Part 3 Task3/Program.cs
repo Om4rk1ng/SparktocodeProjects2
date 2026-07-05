@@ -174,7 +174,7 @@
             int firstIndex = sentence.IndexOf(wordToFind);
             int lastIndex = sentence.LastIndexOf(wordToFind);
 
-            
+
             if (sentence.Contains(wordToFind))
             {
                 Console.WriteLine("First occurrence index: " + firstIndex);
@@ -198,7 +198,7 @@
             int maxattempts = 3;
             bool isVerified = false;
 
-            for(;attempt >= maxattempts; attempt++)
+            for (; attempt >= maxattempts; attempt++)
             {
                 try
                 {
@@ -214,7 +214,7 @@
                         Console.WriteLine("Incorrect OTP. Please try again.");
                     }
                 }
-                catch(FormatException)
+                catch (FormatException)
                 {
                     Console.WriteLine("Please enter a valid numeric OTP.");
                 }
@@ -231,8 +231,35 @@
 
             }
 
+            ///////Task 12 - Birthday Insights/////////////////////////////////////////////
+            ///
 
+            Console.WriteLine("Enter your birthdate (yyyy-MM-dd):");
 
+            string birthdateInput = Console.ReadLine();
+            try
+            {
+                DateTime birthdate = DateTime.Parse(birthdateInput);
+
+                DayOfWeek dayofweek = birthdate.DayOfWeek;
+
+                DateTime today = DateTime.Today;
+
+                int age = today.Year - birthdate.Year;
+
+                if (today.Month < birthdate.Month || (today.Month == birthdate.Month && today.Day < birthdate.Day))
+                {
+                    age--;
+                }
+
+                Console.WriteLine("You were born on a " + dayofweek);
+                Console.WriteLine("You are " + age + " years old.");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Please ensure the date is in YYYY-MM-DD format.");
+
+            }
         }
     }
 }

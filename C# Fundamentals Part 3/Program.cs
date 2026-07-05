@@ -161,6 +161,29 @@
                 Console.WriteLine("Please ensure the number is a valid decimal number.");
             }
 
+            ///////Task 10 - Word Position Finder/////////////////////////////////////////////
+            ///
+
+            Console.WriteLine("Enter a sentence:");
+            string sentence = Console.ReadLine();
+
+            Console.WriteLine("Enter a word to find its position:");
+            string wordToFind = Console.ReadLine();
+
+            int firstIndex = sentence.IndexOf(wordToFind);
+            int lastIndex = sentence.LastIndexOf(wordToFind);
+
+
+            if (sentence.Contains(wordToFind))
+            {
+                Console.WriteLine("First occurrence index: " + firstIndex);
+                Console.WriteLine("Last occurrence index: " + lastIndex);
+            }
+            else
+            {
+                Console.WriteLine("The word was not found in the sentence.");
+            }
+
         }
     }
 }

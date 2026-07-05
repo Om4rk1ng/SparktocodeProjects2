@@ -52,6 +52,26 @@
 
             Console.WriteLine("Your subscription will end on: " + enddate.ToString("yyyy-MM-dd"));
 
+            ///////Task 5 - Grade Rounding System/////////////////////////////////////////////
+            ///
+
+            Console.WriteLine("Enter your raw grade:");
+            double grade = double.Parse(Console.ReadLine());
+
+            double roundedGrade = Math.Round(grade);
+            string passfailresult = "";
+            if (roundedGrade >= 60)
+            {
+                passfailresult = "Pass";
+
+            }
+            else
+            {
+                passfailresult = "Fail";
+            }
+
+            Console.WriteLine("Rounded Grade: " + roundedGrade + ", Result: " + passfailresult);
+
         }
     }
 }

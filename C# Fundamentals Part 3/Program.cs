@@ -184,6 +184,54 @@
                 Console.WriteLine("The word was not found in the sentence.");
             }
 
+            ///////Task 11 - One-Time Password (OTP) Generator/////////////////////////////////////////////
+            ///
+
+            Random random = new Random();
+
+            int otp = random.Next(1000, 9999); // Generates a 6-digit OTP
+
+            Console.WriteLine("Your One-Time Password (OTP) is: " + otp);
+
+            int attempt = 1;
+            int maxattempts = 3;
+            bool isVerified = false;
+
+            for (; attempt >= maxattempts; attempt++)
+            {
+                try
+                {
+                    Console.WriteLine("Enter the OTP:");
+                    int userInput = int.Parse(Console.ReadLine());
+                    if (userInput == otp)
+                    {
+                        isVerified = true;
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Incorrect OTP. Please try again.");
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Please enter a valid numeric OTP.");
+                }
+
+                if (isVerified)
+                {
+                    Console.WriteLine("OTP verified successfully!");
+                }
+                else
+                {
+                    Console.WriteLine("Maximum attempts reached. OTP verification failed.");
+                }
+
+
+            }
+
+
+
         }
     }
 }

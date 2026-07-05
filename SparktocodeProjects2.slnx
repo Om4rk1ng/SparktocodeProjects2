@@ -3,5 +3,6 @@
   <Project Path="3rd_C#_program/3rd_C#_program.csproj" Id="f79c5f28-5514-4a14-ad7f-01381a7d18f1" />
   <Project Path="app1/app1.csproj" />
   <Project Path="C# Fundamentals - Part 1 task/C# Fundamentals - Part 1 task.csproj" Id="3fe38efa-245e-4f3b-ac42-55e35a134993" />
+  <Project Path="C# Fundamentals Part 3/C# Fundamentals Part 3.csproj" Id="e9976182-593a-4a77-9728-c5d18ca3572c" />
   <Project Path="c# fundamentals- part 2 task 2 loops_error_handling/c# fundamentals- part 2 task 2 loops_error_handling.csproj" Id="efd0e987-ff93-4a22-911d-bba6d4cf5d60" />
 </Solution>

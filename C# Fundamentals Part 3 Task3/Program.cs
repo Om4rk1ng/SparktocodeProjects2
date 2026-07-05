@@ -71,7 +71,26 @@
                 passfailresult = "Fail";
             }
 
-            Console.WriteLine("Rounded Grade: " + roundedGrade +", Result: "+passfailresult);
+            Console.WriteLine("Rounded Grade: " + roundedGrade + ", Result: " + passfailresult);
+
+            ///////Task 6 - Password Strength Checker/////////////////////////////////////////////
+            ///
+
+            Console.WriteLine("Enter your password:");
+            string password = Console.ReadLine();
+
+            bool isweak = password.Length < 8 || password.ToLower().Contains("password");
+
+            if (isweak)
+            {
+                Console.WriteLine("Your password is weak, must be atleast 8 characters and is not password.");
+
+            }
+            else
+            {
+                Console.WriteLine("Your password is strong because it is atleast 8 characters and does not contain password.");
+            }
+
 
 
 

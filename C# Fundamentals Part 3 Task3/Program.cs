@@ -140,7 +140,27 @@
 
             }
 
-            
+            ///////Task 9 - Round Up / Round Down Explorer/////////////////////////////////////////////
+            ///
+            try
+            {
+                Console.WriteLine("enter a decimal number");
+
+                double decimalnumber = double.Parse(Console.ReadLine());
+
+                double roundednumber = Math.Round(decimalnumber);
+                double roundUp = Math.Ceiling(decimalnumber);
+                double roundDown = Math.Floor(decimalnumber);
+
+                Console.WriteLine("Rounded number: " + roundednumber);
+                Console.WriteLine("Rounded up number: " + roundUp);
+                Console.WriteLine("Rounded down number: " + roundDown);
+
+            }
+            catch (FormatException) { 
+            Console.WriteLine("Please ensure the number is a valid decimal number.");
+            }
+
 
         }
     }

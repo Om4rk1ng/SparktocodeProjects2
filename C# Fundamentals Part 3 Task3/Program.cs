@@ -28,7 +28,20 @@
             Console.WriteLine("Power result: " + powerresult);
             Console.WriteLine("Squareroot result: " + squarreootresult);
 
-            
+            ///////Task 3 - Name Formatter/////////////////////////////////////////////
+            ///
+
+            Console.WriteLine("Enter your full name:");
+            string fullName = Console.ReadLine();
+
+            string upperCaseName = fullName.ToUpper();
+            string lowerCaseName = fullName.ToLower();
+            string lengthOfName = fullName.Length.ToString();
+
+            Console.WriteLine("Uppercase: " + upperCaseName);
+            Console.WriteLine("Lowercase: " + lowerCaseName);
+            Console.WriteLine("Length of name: " + lengthOfName);
+
 
         }
     }

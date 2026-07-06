@@ -51,6 +51,20 @@ namespace C__Fundamentals___Part_4
 
             Console.WriteLine("fehrenheit: "+ fahrenheit);
 
+            ///////Task 4 -  Fixed Menu Display Function/////////////////////////////////////////////
+            ///
+
+            static void DisplayMenu()
+            {
+                Console.WriteLine("Menu:");
+                Console.WriteLine("1. start");
+                Console.WriteLine("2. help");
+                Console.WriteLine("3. Exit");
+
+            }
+
+            DisplayMenu();
+
 
         }
     }

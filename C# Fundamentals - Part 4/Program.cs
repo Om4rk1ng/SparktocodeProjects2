@@ -80,6 +80,16 @@ namespace C__Fundamentals___Part_4
             }
         }
 
+        //task 8 - Countdown Function
+
+        public static void Countdown(int number)
+        {
+            for (int i = number; i >= 0; i--)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
         static void Main(string[] args)
         {
             ///////Task 1 Absolute Difference/////////////////////////////////////////////
@@ -166,6 +176,12 @@ namespace C__Fundamentals___Part_4
 
             //////Task 8 - Countdown Function/////////////////////////////////////////////
             /// 
+
+            Console.WriteLine("Enter a number to start countdown: ");
+            int countdownNumber = int.Parse(Console.ReadLine());
+
+            Countdown(countdownNumber);
+
 
         }
     }

@@ -25,7 +25,7 @@ namespace C__Fundamentals___Part_4
 
             Console.WriteLine("Enter a number to square: ");
             int number = int.Parse(Console.ReadLine());
-            Console.WriteLine($"The square of  is:");
+            Console.WriteLine($"The square of "+number+  " is:");
             int squaredNumber = SquareNumber(number);
 
 
@@ -34,7 +34,23 @@ namespace C__Fundamentals___Part_4
                 return num * num;
             }
 
-            SquareNumber(number);
+            Console.WriteLine(SquareNumber(number));
+
+            ///////Task 3 - Celsius to Fahrenheit Function/////////////////////////////////////////////
+            ///
+
+            Console.WriteLine("Enter a temperature in Celsius: ");
+            double celsius = double.Parse(Console.ReadLine());
+            
+            double fahrenheit = CelsiusToFahrenheit(celsius);
+
+            static double CelsiusToFahrenheit(double celsius)
+            {
+                return (celsius * 9 / 5) + 32;
+            }
+
+            Console.WriteLine("fehrenheit: "+ fahrenheit);
+
 
         }
     }

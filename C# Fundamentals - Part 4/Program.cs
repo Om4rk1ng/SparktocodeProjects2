@@ -1,4 +1,6 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.Drawing;
+using System.Runtime.Intrinsics.X86;
+using System.Security.Cryptography.X509Certificates;
 using System.Transactions;
 
 namespace C__Fundamentals___Part_4
@@ -64,6 +66,33 @@ namespace C__Fundamentals___Part_4
             }
 
             DisplayMenu();
+
+            ///////Task 5 -  Even or Odd Function/////////////////////////////////////////////
+            ///
+
+            /* Write a function called IsEven that takes an integer parameter and returns a bool indicating whether the number is
+even.Ask the user for a number in Main, call the function, and use its returned value in an if-else statement to print
+"Even" or "Odd".
+Requirements:
+• The function must have a bool return type and exactly one int parameter.
+• The function should only return true or false - the if-else and printing happen in Main.*/
+
+            Console.WriteLine("Enter a number to check if it is even or odd: ");
+            int checkNumber = int.Parse(Console.ReadLine());
+
+            static bool IsEven(int num)
+            {
+                return num % 2 == 0;
+            }
+
+            if (IsEven(checkNumber))
+            {
+                Console.WriteLine("Even");
+            }
+            else
+            {
+                Console.WriteLine("Odd");
+            }
 
 
         }

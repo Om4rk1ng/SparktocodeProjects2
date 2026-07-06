@@ -122,6 +122,46 @@ namespace C__Fundamentals___Part_4
          
          */
 
+        //Task 11 - Function-Based Calculator
+
+        public static double Add(double a, double b)
+        {
+            return a + b;
+        }
+
+        public static double Subtract(double a, double b)
+        {
+            return a - b;
+        }
+
+        public static double MultiplyNumbers(double a, double b)
+        {
+            return a * b;
+        }
+
+        public static double DivideNumbers(double a, double b)
+        {
+            try
+            {
+                if (b == 0)
+                {
+                    throw new DivideByZeroException();
+                }
+                return a / b;
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Error: Cannot divide by zero!");
+                return 0;
+            }
+        }
+
+        public static void DisplayResult(string operationName, double result)
+        {
+            Console.WriteLine($"Result of {operationName}: {result}");
+        }
+
+
         static void Main(string[] args)
         {
             ///////Task 1 Absolute Difference/////////////////////////////////////////////
@@ -255,7 +295,62 @@ namespace C__Fundamentals___Part_4
                 Console.WriteLine("wrong choice");
             }
 
+            //Task 11 - Function-Based Calculator
 
+            bool keepRunning = true;
+
+            while (keepRunning)
+            {
+                Console.WriteLine("\n--- Simple Calculator ---");
+                Console.WriteLine("1. Add");
+                Console.WriteLine("2. Subtract");
+                Console.WriteLine("3. Multiply");
+                Console.WriteLine("4. Divide");
+                Console.WriteLine("5. Exit");
+                Console.Write("Choose an option (1-5): ");
+                string choice = Console.ReadLine();
+
+                if (choice == "5")
+                {
+                    keepRunning = false;
+                    Console.WriteLine("Thank you for using the calculator. Goodbye!");
+                    break;
+                }
+
+                if (choice != "1" && choice != "2" && choice != "3" && choice != "4")
+                {
+                    Console.WriteLine("Invalid selection. Please try again.");
+                    continue;
+                }
+
+                Console.Write("Enter the first number: ");
+                double num1 = Convert.ToDouble(Console.ReadLine());
+
+                Console.Write("Enter the second number: ");
+                double num2 = Convert.ToDouble(Console.ReadLine());
+
+                double result = 0;
+
+                switch (choice)
+                {
+                    case "1":
+                        result = Add(num1, num2);
+                        DisplayResult("Addition", result);
+                        break;
+                    case "2":
+                        result = Subtract(num1, num2);
+                        DisplayResult("Subtraction", result);
+                        break;
+                    case "3":
+                        result = MultiplyNumbers(num1, num2);
+                        DisplayResult("Multiplication", result);
+                        break;
+                    case "4":
+                        result = DivideNumbers(num1, num2);
+                        DisplayResult("Division", result);
+                        break;
+                }
+            }
         }
     }
 }

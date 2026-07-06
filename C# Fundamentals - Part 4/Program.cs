@@ -90,6 +90,22 @@ namespace C__Fundamentals___Part_4
             }
         }
 
+        //task 9 - Overloaded Multiply Function
+        public static int Multiply(int a, int b)
+        {
+            return a * b;
+        }
+
+        public static double Multiply(double a, double b)
+        {
+            return a * b;
+        }
+
+        public static int Multiply(int a, int b, int c)
+        {
+            return a * b * c;
+        }
+
         static void Main(string[] args)
         {
             ///////Task 1 Absolute Difference/////////////////////////////////////////////
@@ -182,6 +198,18 @@ namespace C__Fundamentals___Part_4
 
             Countdown(countdownNumber);
 
+            //task 9 -  Overloaded Multiply Function/////////////////////////////////////////////
+            ///
+            int intResult = Multiply(2, 3);
+            Console.WriteLine("Multiply(int, int): " + intResult);
+
+            double doubleResult = Multiply(2.5, 3.5);
+            Console.WriteLine("Multiply(double, double): " + doubleResult);
+
+            double intResult3 = Multiply(2, 3, 4);
+            Console.WriteLine("Multiply(int, int, int): " + intResult3);
+
+           
 
         }
     }

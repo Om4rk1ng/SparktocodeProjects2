@@ -106,6 +106,22 @@ namespace C__Fundamentals___Part_4
             return a * b * c;
         }
 
+        //Task 10 - Overloaded Area Calculator function
+
+        public static double CalculateArea(double side)
+        {
+            return side * side;
+        }
+
+        /*
+         
+        public static double CalculateArea(double length, double width)
+        {
+            return length * width;
+        }
+         
+         */
+
         static void Main(string[] args)
         {
             ///////Task 1 Absolute Difference/////////////////////////////////////////////
@@ -209,7 +225,36 @@ namespace C__Fundamentals___Part_4
             double intResult3 = Multiply(2, 3, 4);
             Console.WriteLine("Multiply(int, int, int): " + intResult3);
 
-           
+            //Task 10 - Overloaded Area Calculator
+
+            Console.WriteLine("choose a shape to calculate area (1 for rectangle, 2 for circle): ");
+            int shapeChoice = int.Parse(Console.ReadLine());
+
+            if (shapeChoice == 1)
+            {
+                Console.WriteLine("Enter the length of the square: ");
+                double result = double.Parse(Console.ReadLine());
+
+                double squareArea = CalculateArea(result);
+                Console.WriteLine("Area of the square: " + squareArea);
+            }
+            else if (shapeChoice == 2) 
+            { 
+            Console.WriteLine("Enter the length of the rectangle: ");
+                double length1 = double.Parse(Console.ReadLine());
+                Console.WriteLine("enter width of rectangle:");
+                double wid1 = double.Parse(Console.ReadLine());
+
+                double rectarea = CalculateArea(length1, wid1);
+
+                Console.WriteLine("area of rectangle is: " + rectarea);
+
+            }
+            else
+            {
+                Console.WriteLine("wrong choice");
+            }
+
 
         }
     }

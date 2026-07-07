@@ -29,9 +29,9 @@
         /// task 10 function
         public static void RemoveJob(Queue<string> currentQueue, string jobToRemove)
         {
-            int originalCount = currentQueue.Count;
+           
 
-            for (int i = 0; i < originalCount; i++)
+            for (int i = 0; i < currentQueue.Count; i++)
             {
                 string currentJob = currentQueue.Dequeue();
 
@@ -271,7 +271,7 @@
                 Console.Write("Enter job name: ");
                 string input = Console.ReadLine();
 
-                if (input.ToLower() == "done")
+                if (input == "done")
                 {
                     break;
                 }

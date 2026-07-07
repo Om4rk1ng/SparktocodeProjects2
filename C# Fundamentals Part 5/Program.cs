@@ -24,6 +24,26 @@
                 Console.WriteLine(num);
             }
 
+            ///////Task 2 - Dynamic To-Do List/////////////////////////////////////////////
+            ///
+
+            List <String> to_do_items= new List <String>();
+
+            for(int i = 0;i < 5; i++)
+            {
+                Console.WriteLine("\nenter task "+(i+1));
+                string task = Console.ReadLine();
+
+                to_do_items.Add(task);
+            }
+            int count = 0;
+            foreach (string num in to_do_items) {
+                
+                count++;
+                Console.WriteLine(count + ". "+num);
+                    
+                        }
+
 
         }
     }

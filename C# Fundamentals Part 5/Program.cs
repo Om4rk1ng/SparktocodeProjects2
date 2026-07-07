@@ -105,6 +105,40 @@
             Console.WriteLine("Highest Grade: "+grades[4]);
             Console.WriteLine("Average Grade: "+average);
 
+            ///////Task 6 - Filtered Shopping List/////////////////////////////////////////////
+            ///
+
+            List<string> shoppingList = new List<string>();
+
+            Console.WriteLine("\nenter your shopping list items one by one and type done when finished");
+            int ii= 0;
+            while (true)
+            {
+
+                Console.WriteLine("add item" + (ii + 1) + ":");
+                ii++;
+                string additem = Console.ReadLine();
+                
+                if (additem == "done") 
+                {
+                    break;
+                }
+                else
+                {
+                    shoppingList.Add(additem);
+                }
+
+                
+            }
+            Console.WriteLine("before removing:" + shoppingList);
+
+            Console.Write("\nEnter the name of the item you want to remove: ");
+            string itemToRemove = Console.ReadLine();
+
+            shoppingList.Remove(itemToRemove);
+
+            Console.WriteLine("after removal: " + shoppingList);
+
         }
     }
 }

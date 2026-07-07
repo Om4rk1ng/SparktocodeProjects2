@@ -65,6 +65,23 @@
 
             Console.WriteLine("\nyou successfully landed on " + browsinghis.Peek());
 
+            ///////Task 4 - Customer Service Queue/////////////////////////////////////////////
+            ///
+
+            Queue<String> list = new Queue<String>();
+
+            for (int i = 0;i < 3;i++)
+            {
+                Console.WriteLine("\nenter customer "+(i+1)+" name:");
+                string name = Console.ReadLine();
+
+                list.Enqueue(name);
+            }
+
+            Console.WriteLine("\ncustomer "+list.Dequeue+" is served first");
+
+
+
         }
     }
 }

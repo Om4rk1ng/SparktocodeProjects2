@@ -2,11 +2,35 @@
 {
     internal class Program
     {
+
+        ///////Task 9 functions /////////////////////////////////////////////
+        /// 
+
+        public static double CalculateAverage(List<int> gradeList)              //function 1
+        {
+            if (gradeList.Count == 0) 
+            {
+                return 0.0;
+            }
+            double sum = 0;
+            foreach (int grade in gradeList) 
+            {
+                sum += grade;
+            }
+                return sum / gradeList.Count; 
+        }
+
+       public static int FindFirstFailing(List<int> gradeList)             //function 2
+        {
+            
+            return gradeList.Find(x => x < 60);
+        }
+
+
         static void Main(string[] args)
         {
 
-            ///////task 1 Fixed Grades Array/////////////////////////////////////////////
-            ///
+            
 
             int[] numbers = new int[5];
             for (int i = 0; i < numbers.Length; i++)
@@ -192,7 +216,38 @@
                 Console.WriteLine(remainingAction);
             }
 
+            ///////Task 9 - Undo Last Action/////////////////////////////////////////////
+            ///
 
-        }
+            
+            List<int> grades1 = new List<int>();
+
+            Console.WriteLine("\nHow many grades do you want to enter? ");
+            int count1 = int.Parse(Console.ReadLine());
+
+            
+            for (int i = 1; i <= count1; i++)
+            {
+                Console.Write("Enter grade #" + i + ": ");
+                int grade = int.Parse(Console.ReadLine());
+                grades1.Add(grade);
+            }
+            
+            Console.WriteLine("Average Grade: " + CalculateAverage(grades1));
+
+            
+
+            if (FindFirstFailing(grades1) == 0)
+            {
+                Console.WriteLine("First Failing Grade: No failing grades found!");
+            }
+            else
+            {
+                Console.WriteLine("First Failing Grade: " + FindFirstFailing(grades1));
+            }
+
+
+        
+    }
     }
 }

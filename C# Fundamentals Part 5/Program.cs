@@ -139,6 +139,28 @@
 
             Console.WriteLine("after removal: " + shoppingList);
 
+            ///////Task 7 - High Score Podium/////////////////////////////////////////////
+            ///
+
+            List<int> scores = new List<int>();
+
+            Console.WriteLine("Game Score Leaderboard");
+
+          
+            for (int i = 1; i <= 5; i++)
+            {
+                Console.Write("Enter game score #"+i+": ");
+                scores.Add(int.Parse(Console.ReadLine()));
+            }
+
+            scores.Sort();
+            scores.Reverse();
+
+            
+            Console.WriteLine("\n1st place: " + scores[0] + " pts");
+            Console.WriteLine("2nd place: " + scores[2] + " pts");
+            Console.WriteLine("3rd place: " + scores[2] + " pts");
+            
         }
     }
 }

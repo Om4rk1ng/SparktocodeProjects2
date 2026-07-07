@@ -26,12 +26,24 @@
             return gradeList.Find(x => x < 60);
         }
 
+        /// task 10 function
+        public static void RemoveJob(Queue<string> currentQueue, string jobToRemove)
+        {
+            int originalCount = currentQueue.Count;
+
+            for (int i = 0; i < originalCount; i++)
+            {
+                string currentJob = currentQueue.Dequeue();
+
+                if (currentJob != jobToRemove)
+                {
+                    currentQueue.Enqueue(currentJob);
+                }
+            }
+        }
 
         static void Main(string[] args)
         {
-
-            
-
             int[] numbers = new int[5];
             for (int i = 0; i < numbers.Length; i++)
             {
@@ -248,6 +260,44 @@
 
             ///////Task 10 - Print Queue Manager/////////////////////////////////////////////
             ///
+
+            Queue<string> printQueue = new Queue<string>();
+
+            
+            Console.WriteLine("Enter print job names. Type 'done' when you are finished.\n");
+
+            while (true)
+            {
+                Console.Write("Enter job name: ");
+                string input = Console.ReadLine();
+
+                if (input.ToLower() == "done")
+                {
+                    break;
+                }
+
+                printQueue.Enqueue(input);
+            }
+
+            Console.WriteLine("\nQueue Before Cancellation:");
+            foreach (string job in printQueue)
+            {
+                Console.WriteLine(job);
+            }
+
+            Console.Write("\nEnter the name of the print job to cancel: ");
+            string jobToCancel = Console.ReadLine();
+
+            RemoveJob(printQueue, jobToCancel);
+
+            Console.WriteLine("\nQueue After Cancellation:");
+
+            foreach (string job in printQueue)
+            {
+                Console.WriteLine(job);
+            }
+
+            
 
         }
     }

@@ -27,23 +27,43 @@
             ///////Task 2 - Dynamic To-Do List/////////////////////////////////////////////
             ///
 
-            List <String> to_do_items= new List <String>();
+            List<String> to_do_items = new List<String>();
 
-            for(int i = 0;i < 5; i++)
+            for (int i = 0; i < 5; i++)
             {
-                Console.WriteLine("\nenter task "+(i+1));
+                Console.WriteLine("\nenter task " + (i + 1));
                 string task = Console.ReadLine();
 
                 to_do_items.Add(task);
             }
             int count = 0;
-            foreach (string num in to_do_items) {
-                
-                count++;
-                Console.WriteLine(count + ". "+num);
-                    
-                        }
+            foreach (string num in to_do_items)
+            {
 
+                count++;
+                Console.WriteLine(count + ". " + num);
+
+            }
+
+            ///////Task 3 - Browsing History Stack/////////////////////////////////////////////
+            ///
+            Stack<String> browsinghis = new Stack<String>();
+
+            for (int i = 0; i < 3; i++)
+            {
+
+                Console.Write($"Enter website URL #"+i+": ");
+                string url = Console.ReadLine();
+
+                browsinghis.Push(url);
+
+            }
+
+            Console.WriteLine("\ncurrent page is on" + browsinghis.Peek());
+
+            Console.WriteLine("\ngoing back from page: "+browsinghis.Pop());
+
+            Console.WriteLine("\nyou successfully landed on " + browsinghis.Peek());
 
         }
     }

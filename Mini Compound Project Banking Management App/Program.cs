@@ -70,6 +70,9 @@ namespace Mini_Compound_Project_Banking_Management_App
             }
         }
 
+
+        ///////Service 1 - Add New Account/////////////////////////////////////////////
+        ///
         public static void AddAccount()
         {
             Console.Write("Enter customer name: ");
@@ -100,6 +103,9 @@ namespace Mini_Compound_Project_Banking_Management_App
             Console.WriteLine("Account successfully created");
             Console.WriteLine("Name: " + name + " | Acc No: " + accNum + " | Balance: " + initialDeposit);
         }
+
+        ///////Service 2 - Deposit Money/////////////////////////////////////////////
+        ///
         public static void DepositMoney()
         {
             Console.Write("Enter account number: ");
@@ -124,6 +130,40 @@ namespace Mini_Compound_Project_Banking_Management_App
 
             balances[index] += amount;
             Console.WriteLine("Deposit successful, Updated Balance: " + balances[index]);
+        }
+
+        ///////Service 3 - Withdraw Money/////////////////////////////////////////////
+        ///
+        public static void WithdrawMoney()
+        {
+            Console.Write("Enter account number: ");
+            string accNum = Console.ReadLine();
+
+            int index = accountNumbers.IndexOf(accNum);
+
+            if (index == -1)
+            {
+                Console.WriteLine("Account number not found");
+                return;
+            }
+
+            Console.Write("Enter withdrawal amount: ");
+            double amount = double.Parse(Console.ReadLine());
+
+            if (amount <= 0)
+            {
+                Console.WriteLine("Withdrawal amount must be positive");
+                return;
+            }
+
+            if (amount > balances[index])
+            {
+                Console.WriteLine("Insufficient balance, Your current balance is: " + balances[index]);
+                return;
+            }
+
+            balances[index] -= amount;
+            Console.WriteLine("Withdrawal successful, Updated Balance: " + balances[index]);
         }
 
     }

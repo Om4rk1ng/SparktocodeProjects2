@@ -246,6 +246,34 @@ namespace Mini_Compound_Project_Banking_Management_App
             }
         }
 
+        ///////Service 7 -  Find the Richest Customer/////////////////////////////////////////////
+        ///
+        public static void FindRichestCustomer()
+        {
+            if (balances.Count == 0)
+            {
+                Console.WriteLine("No accounts registered in the system.");
+                return;
+            }
+
+            int richestIndex = 0;
+            double highestBalance = balances[0];
+
+            for (int i = 1; i < balances.Count; i++)
+            {
+                if (balances[i] > highestBalance)
+                {
+                    highestBalance = balances[i];
+                    richestIndex = i;
+                }
+            }
+
+            Console.WriteLine("\nRichest Customer");
+            Console.WriteLine("Name: " + customerNames[richestIndex]);
+            Console.WriteLine("Account Number: " + accountNumbers[richestIndex]);
+            Console.WriteLine("Highest Balance: " + balances[richestIndex]);
+
+        }
 
 
     }

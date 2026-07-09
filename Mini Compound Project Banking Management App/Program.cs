@@ -100,7 +100,31 @@ namespace Mini_Compound_Project_Banking_Management_App
             Console.WriteLine("Account successfully created");
             Console.WriteLine("Name: " + name + " | Acc No: " + accNum + " | Balance: " + initialDeposit);
         }
+        public static void DepositMoney()
+        {
+            Console.Write("Enter account number: ");
+            string accNum = Console.ReadLine();
 
-        
+            int index = accountNumbers.IndexOf(accNum);
+
+            if (index == -1)
+            {
+                Console.WriteLine("Account number not found");
+                return;
+            }
+
+            Console.Write("Enter deposit amount: ");
+            double amount = double.Parse(Console.ReadLine());
+
+            if (amount <= 0)
+            {
+                Console.WriteLine("Deposit amount must be positive");
+                return;
+            }
+
+            balances[index] += amount;
+            Console.WriteLine("Deposit successful, Updated Balance: " + balances[index]);
+        }
+
     }
 }

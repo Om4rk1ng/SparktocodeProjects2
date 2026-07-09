@@ -187,5 +187,49 @@ namespace Mini_Compound_Project_Banking_Management_App
             Console.WriteLine("Current Balance: " + balances[index]);
         }
 
+        ///////Service 5 - Transfer Amount/////////////////////////////////////////////
+        ///
+        public static void TransferAmount()
+        {
+            Console.Write("Enter sender's account number: ");
+            string senderAcc = Console.ReadLine();
+
+            Console.Write("Enter receiver's account number: ");
+            string receiverAcc = Console.ReadLine();
+
+            int senderIndex = accountNumbers.IndexOf(senderAcc);
+            int receiverIndex = accountNumbers.IndexOf(receiverAcc);
+
+            if (senderIndex == -1 || receiverIndex == -1)
+            {
+                Console.WriteLine("One or both account numbers do not exist");
+                return;
+            }
+
+            Console.Write("Enter transfer amount: ");
+            double amount = double.Parse(Console.ReadLine());
+
+            if (amount <= 0)
+            {
+                Console.WriteLine("Transfer amount must be positive");
+                return;
+            }
+
+            if (amount > balances[senderIndex])
+            {
+                Console.WriteLine("Sender has insufficient balance");
+                return;
+            }
+
+            balances[senderIndex] -= amount;
+            balances[receiverIndex] += amount;
+
+            Console.WriteLine("Transfer successful");
+            Console.WriteLine("Sender (" + customerNames[senderIndex] + ") Updated Balance: " + balances[senderIndex]);
+            Console.WriteLine("Receiver (" + customerNames[receiverIndex] + ") Updated Balance: " + balances[receiverIndex]);
+        }
+
+
+
     }
 }

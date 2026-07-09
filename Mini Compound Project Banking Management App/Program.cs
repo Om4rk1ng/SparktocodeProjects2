@@ -70,7 +70,6 @@ namespace Mini_Compound_Project_Banking_Management_App
             }
         }
 
-
         ///////Service 1 - Add New Account/////////////////////////////////////////////
         ///
         public static void AddAccount()

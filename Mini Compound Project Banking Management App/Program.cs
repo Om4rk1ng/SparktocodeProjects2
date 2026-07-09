@@ -229,6 +229,23 @@ namespace Mini_Compound_Project_Banking_Management_App
             Console.WriteLine("Receiver (" + customerNames[receiverIndex] + ") Updated Balance: " + balances[receiverIndex]);
         }
 
+        ///////Service 6 -  List All Accounts/////////////////////////////////////////////
+        ///
+        public static void ListAllAccounts()
+        {
+            if (customerNames.Count == 0)
+            {
+                Console.WriteLine("No accounts registered in the system.");
+                return;
+            }
+
+            Console.WriteLine("\nAll Accounts List");
+            for (int i = 0; i < customerNames.Count; i++)
+            {
+                Console.WriteLine("Index: " + i + " | Name: " + customerNames[i] + " | Acc No: " + accountNumbers[i] + " | Balance: " + balances[i]);
+            }
+        }
+
 
 
     }

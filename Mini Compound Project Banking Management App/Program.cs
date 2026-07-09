@@ -166,5 +166,26 @@ namespace Mini_Compound_Project_Banking_Management_App
             Console.WriteLine("Withdrawal successful, Updated Balance: " + balances[index]);
         }
 
+        ///////Service 4 - Show Balance/////////////////////////////////////////////
+        ///
+        public static void ShowBalance()
+        {
+            Console.Write("Enter account number: ");
+            string accNum = Console.ReadLine();
+
+            int index = accountNumbers.IndexOf(accNum);
+
+            if (index == -1)
+            {
+                Console.WriteLine("Account number not found");
+                return;
+            }
+
+            Console.WriteLine("\nAccount Details");
+            Console.WriteLine("Customer Name: " + customerNames[index]);
+            Console.WriteLine("Account Number: " + accountNumbers[index]);
+            Console.WriteLine("Current Balance: " + balances[index]);
+        }
+
     }
 }

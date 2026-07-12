@@ -241,7 +241,19 @@
                 Console.WriteLine("Insufficient funds in " + account1.HolderName + "'s account.");
             }
 
+            // Case 10 - Update Student Grade (Validated)
+            Console.Write("Enter the new grade for the student: ");
+            int newGrade = int.Parse(Console.ReadLine());
 
+            if (newGrade < 0 || newGrade > 100)
+            {
+                Console.WriteLine("Update rejected: Grade must be within the 0-100 range.");
+            }
+            else
+            {
+                student1.Grade = newGrade;
+                Console.WriteLine("Success: " + student1.Name + "'s grade has been updated to " + student1.Grade);
+            }
         }
     }
 }

@@ -193,7 +193,22 @@
             Console.WriteLine("Confirmation: The student's registration profile has been updated successfully.");
 
 
-            //case 7
+            // Case 7 - Compare Two Account Balances
+            if (account1.Balance > account2.Balance)
+            {
+                Console.WriteLine(account1.HolderName + " holds more money.");
+            }
+            else if (account2.Balance > account1.Balance)
+            {
+                Console.WriteLine(account2.HolderName + " holds more money.");
+            }
+            else
+            {
+                Console.WriteLine("Both accounts are equal.");
+            }
+
+
+
         }
     }
 }

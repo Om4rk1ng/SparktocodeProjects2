@@ -160,7 +160,8 @@
             Console.Write("Enter the new address: ");
             string newAddress = Console.ReadLine();
 
-            student1.Register(newAddress);
+            student1.Address = newAddress;
+            Console.WriteLine("Confirmation: New Address is " + student1.Address);
 
             //case 3 Make a Deposit
 
@@ -183,10 +184,16 @@
             //case 5 View Product Details
             product1.GetInventoryValue();
 
+            //case 6 Register a Student
+
+            Console.Write("Enter the student's email: ");
+            string inputEmail = Console.ReadLine();
+
+            student1.Register(inputEmail);
+            Console.WriteLine("Confirmation: The student's registration profile has been updated successfully.");
 
 
-
-
+            //case 7
         }
     }
 }

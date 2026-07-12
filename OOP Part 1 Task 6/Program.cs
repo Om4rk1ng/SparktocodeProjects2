@@ -226,6 +226,21 @@
                 Console.WriteLine("Stock Level Status: Well Stocked");
             }
 
+            // Case 9 - Transfer Between Accounts
+            Console.Write("Enter the transfer amount: ");
+            double transferAmount = double.Parse(Console.ReadLine());
+
+            if (account1.Balance >= transferAmount)
+            {
+                account1.Withdraw(transferAmount);
+                account2.Deposit(transferAmount);
+                Console.WriteLine("Transfer successful " + transferAmount + " transferred from " + account1.HolderName + " to " + account2.HolderName);
+            }
+            else
+            {
+                Console.WriteLine("Insufficient funds in " + account1.HolderName + "'s account.");
+            }
+
 
         }
     }

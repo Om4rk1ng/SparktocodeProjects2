@@ -174,6 +174,12 @@
 
             //case 4 Case 4 - Make a Withdrawal
 
+            Console.Write("Enter the withdrawal amount: ");
+            double withdrawalAmount = double.Parse(Console.ReadLine());
+
+            account1.Withdraw(withdrawalAmount);
+            account1.CheckBalance();
+
 
 
         }

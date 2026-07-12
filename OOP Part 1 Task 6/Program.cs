@@ -172,13 +172,18 @@
 
             account1.CheckBalance();
 
-            //case 4 Case 4 - Make a Withdrawal
+            //Case 4 - Make a Withdrawal
 
             Console.Write("Enter the withdrawal amount: ");
             double withdrawalAmount = double.Parse(Console.ReadLine());
 
             account1.Withdraw(withdrawalAmount);
             account1.CheckBalance();
+
+            //case 5 View Product Details
+            product1.GetInventoryValue();
+
+
 
 
 

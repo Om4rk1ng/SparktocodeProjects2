@@ -254,6 +254,21 @@
                 student1.Grade = newGrade;
                 Console.WriteLine("Success: " + student1.Name + "'s grade has been updated to " + student1.Grade);
             }
+
+            // Case 11 - Student Report Card
+            Console.WriteLine("\n--- Student Report Card ---");
+            Console.WriteLine("Student Name: " + student1.Name);
+            Console.WriteLine("Address: " + student1.Address);
+            Console.WriteLine("Grade: " + student1.Grade);
+
+            if (student1.Grade >= 60)
+            {
+                Console.WriteLine("Status: Pass");
+            }
+            else
+            {
+                Console.WriteLine("Status: Fail");
+            }
         }
     }
 }

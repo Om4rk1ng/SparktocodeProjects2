@@ -162,7 +162,19 @@
 
             student1.Register(newAddress);
 
-            //case 3
+            //case 3 Make a Deposit
+
+            Console.Write("Enter the deposit amount: ");
+            double depositAmount = double.Parse(Console.ReadLine());
+
+           
+            account1.Deposit(depositAmount);
+
+            account1.CheckBalance();
+
+            //case 4 Case 4 - Make a Withdrawal
+
+
 
         }
     }

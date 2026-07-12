@@ -160,10 +160,9 @@
             Console.Write("Enter the new address: ");
             string newAddress = Console.ReadLine();
 
-            student1.Address = newAddress;
-            Console.WriteLine("Confirmation: Ali's address has been updated to " + student1.Address);
+            student1.Register(newAddress);
 
-
+            //case 3
 
         }
     }

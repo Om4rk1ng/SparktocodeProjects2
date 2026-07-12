@@ -207,6 +207,24 @@
                 Console.WriteLine("Both accounts are equal.");
             }
 
+            // Case 8 - Restock Product & Stock Level Check
+            Console.Write("Enter the quantity to restock: ");
+            int restockQuantity = int.Parse(Console.ReadLine());
+
+            product1.Restock(restockQuantity);
+
+            if (product1.StockQuantity < 10)
+            {
+                Console.WriteLine("Stock Level Status: Low");
+            }
+            else if (product1.StockQuantity >= 10 && product1.StockQuantity <= 49)
+            {
+                Console.WriteLine("Stock Level Status: Moderate");
+            }
+            else
+            {
+                Console.WriteLine("Stock Level Status: Well Stocked");
+            }
 
 
         }

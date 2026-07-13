@@ -7,6 +7,18 @@
         public double Balance { get; set; }
         public string HolderName { get; set; }
 
+        public BankAccount()
+        {
+
+        }
+        
+        public BankAccount(int accountNumber, string holderName, double startingBalance)
+        {
+            AccountNumber = accountNumber;
+            HolderName = holderName;
+            Balance = startingBalance;
+        }
+
         public void Deposit(double amount)
         {
             if (amount > 0)
@@ -41,6 +53,7 @@
             Console.WriteLine("Email notification sent.");
         }
     }
+        
 
     public class Student
     {
@@ -333,6 +346,16 @@
             }
             else
             { Console.WriteLine("no need to top, status of current balance is: $" + realbalance); }
+
+            // Case 16 - Quick Account Opening [Parameterized Constructor]
+
+            BankAccount Account3 = new BankAccount(1164, "Omar", 40);
+
+            Console.WriteLine("Account Number: " + Account3.AccountNumber);
+            Console.WriteLine("Holder Name:    " + Account3.HolderName);
+            Console.WriteLine("Total Balance:  $" +Account3.Balance);
+
+
         }
     }
 }

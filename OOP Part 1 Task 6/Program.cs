@@ -318,7 +318,20 @@
                     Console.WriteLine("account balance "+account1.Balance+" below 100");
                 }
 
+                // Case 15 - Full Balance Top-Up Flow
 
+                double realbalance = account1.Balance;
+
+                if(realbalance < 50)
+                {
+                    double topup = 100 - realbalance;
+                    account1.Deposit(topup);
+
+                    Console.WriteLine("account before topping: $"+realbalance+", account after topping: $"+account1.Balance);
+
+                }
+                else
+                    { Console.WriteLine("no need to top, status of current balance is: $"+realbalance); }
             }
         }
     }

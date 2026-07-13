@@ -270,6 +270,21 @@
                 Console.WriteLine("Status: Fail");
             }
 
+            // Case 12 - Account Health Status
+
+            if (account1.Balance < 50)
+            {
+                Console.WriteLine("account Status: Low Balance");
+            }
+            else if (account2.Balance >= 50 && account1.Balance <=1000) 
+            {
+               Console.WriteLine("Account Status: Healthy"); 
+            }
+            else
+            {
+                Console.WriteLine("Account Status: Premium");
+            }
+
 
         }
     }

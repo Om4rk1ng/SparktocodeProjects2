@@ -285,7 +285,22 @@
                 Console.WriteLine("Account Status: Premium");
             }
 
+            // Case 13 - Bulk Sale With Revenue Calculation
 
+            Console.Write("Enter the quantity to sell: ");
+            int saleQuantity = int.Parse(Console.ReadLine());
+
+            if (product1.StockQuantity < saleQuantity)
+            {
+                int unitsremain= saleQuantity - product1.StockQuantity;
+                Console.WriteLine("not enough, need" + unitsremain + " remaining");
+            }
+            else
+            {
+                product1.Sell(saleQuantity);
+                double revenue = saleQuantity * product1.Price;
+                Console.WriteLine("Sale successful, Units Sold: " + saleQuantity + " | Total Revenue: $" + revenue);
+            }
         }
     }
 }

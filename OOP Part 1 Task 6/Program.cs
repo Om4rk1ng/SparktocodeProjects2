@@ -301,6 +301,25 @@
                 double revenue = saleQuantity * product1.Price;
                 Console.WriteLine("Sale successful, Units Sold: " + saleQuantity + " | Total Revenue: $" + revenue);
             }
+
+            // Case 14 - Scholarship Eligibility Check
+            if (student1.Grade >= 80 && account1.Balance >= 100)
+            {
+                Console.WriteLine("Eligible");
+            }
+            else
+            {
+                if(student1.Grade < 80)
+                {
+                    Console.WriteLine("student grade is below 80 which is at "+student1.Grade);
+                }
+                else
+                {
+                    Console.WriteLine("account balance "+account1.Balance+" below 100");
+                }
+
+
+            }
         }
     }
 }

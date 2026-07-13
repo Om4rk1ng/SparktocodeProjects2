@@ -28,6 +28,14 @@
             SendEmail();
         }
 
+        public bool overdrawn
+        {
+            get
+            {
+                return Balance > 0;
+            }
+        }
+
         public void Withdraw(double amount)
         {
             if (amount > 0 && Balance >= amount)
@@ -62,11 +70,22 @@
         public string Name { get; set; }
         public string Address { get; set; }
 
+        private static int NoOfStudent = 0;
      
         private string email;
 
     
         int age;
+
+        public Student()
+        {
+            NoOfStudent++;
+        }
+
+        public static int GetStudentCount()
+        {
+            return NoOfStudent;
+        }
 
         public void Register(string Email)
         {
@@ -355,7 +374,23 @@
             Console.WriteLine("Holder Name:    " + Account3.HolderName);
             Console.WriteLine("Total Balance:  $" +Account3.Balance);
 
+            // Case 17 - Total Students Counter[Static Fields & Methods]
+            Console.WriteLine("student count tracker");    
+            Console.WriteLine("Total Student created: " +Student.GetStudentCount);
 
+            // Case 18 - Overdrawn Account Check [Read-Only Property]
+
+            Console.WriteLine("account details check");
+            account1.CheckBalance();
+
+            if (account1.overdrawn)
+            {
+                Console.WriteLine("account is overdrawn");
+            }
+            else
+            {
+                Console.WriteLine("account is not overdrawn");
+            }
         }
     }
 }

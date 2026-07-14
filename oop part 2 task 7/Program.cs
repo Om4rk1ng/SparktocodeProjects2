@@ -199,7 +199,46 @@
                         break;
                         
                     case 3:
-                        // TODO: Book a Room for a Guest
+                        Console.WriteLine("--- Book a Room for a Guest ---");
+
+                        Console.Write("Enter Guest ID: ");
+                        string lookupGuestId = Console.ReadLine();
+
+                        Console.Write("Enter Room Number: ");
+                        string lookupRoomNum = Console.ReadLine();
+
+                        Guest foundGuest = guests.FirstOrDefault(g => g.GuestId == lookupGuestId);
+                        if (foundGuest == null)
+                        {
+                            Console.WriteLine("Guest not found.");
+                            break;
+                        }
+
+                        Room foundRoom = rooms.FirstOrDefault(r => r.RoomNumber == lookupRoomNum);
+                        if (foundRoom == null)
+                        {
+                            Console.WriteLine("Room not found.");
+                            break;
+                        }
+
+                        if (!foundRoom.IsAvailable)
+                        {
+                            Console.WriteLine("Room is already booked.");
+                            break;
+                        }
+
+                        foundGuest.RoomNumber = foundRoom.RoomNumber;
+                        foundRoom.IsAvailable = false;
+
+                        double totalCost = foundGuest.CalculateTotalCost(foundRoom);
+
+                       
+                        Console.WriteLine("Booking Confirmation:");
+                        foundGuest.DisplayGuest();
+                        foundRoom.DisplayRoom();
+                        Console.WriteLine("Total Booking Cost: $" + totalCost);
+
+
                         break;
 
                     case 4:

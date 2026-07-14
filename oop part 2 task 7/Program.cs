@@ -289,8 +289,8 @@
 
                     case 6:
 
-                    
-                        Console.WriteLine("--- Room Search---");
+
+                        Console.WriteLine("--- Room Search & Analysis ---");
                         Console.WriteLine("1. Show all available rooms");
                         Console.WriteLine("2. Filter by room type");
                         Console.WriteLine("3. Filter by max price");
@@ -307,7 +307,7 @@
                                 .Select(r => r)
                                 .ToList();
 
-                     
+                           
                             Console.WriteLine("Available Rooms Count: " + availableRooms.Count);
                             if (availableRooms.Count == 0)
                             {
@@ -327,11 +327,11 @@
                             string searchType = Console.ReadLine();
 
                             List<Room> typeRooms = rooms
-                                .Where(r => r.RoomType.Equals(searchType, StringComparison.OrdinalIgnoreCase))
+                                .Where(r => r.RoomType.ToLower() == searchType.ToLower())
                                 .Select(r => r)
                                 .ToList();
 
-                            
+                           
                             Console.WriteLine("Rooms Found: " + typeRooms.Count);
                             if (typeRooms.Count == 0)
                             {
@@ -356,7 +356,7 @@
                                 .Select(r => r)
                                 .ToList();
 
-                            Console.WriteLine();
+                           
                             Console.WriteLine("Rooms Found: " + budgetRooms.Count);
                             if (budgetRooms.Count == 0)
                             {
@@ -372,7 +372,7 @@
                         }
                         else if (subChoice == "4")
                         {
-                 
+                            
                             Console.WriteLine("--- Room Statistics ---");
 
                             if (rooms.Count == 0)
@@ -381,6 +381,7 @@
                             }
                             else
                             {
+                              
                                 int availableRoomsCount = rooms.Count(r => r.IsAvailable);
                                 double avgPrice = rooms.Average(r => r.PricePerNight);
                                 double minPrice = rooms.Min(r => r.PricePerNight);
@@ -388,9 +389,9 @@
 
                                 Console.WriteLine("Total Rooms: " + rooms.Count());
                                 Console.WriteLine("Available Rooms: " + availableRoomsCount);
-                                Console.WriteLine("Average Price: $" + avgPrice);
-                                Console.WriteLine("Cheapest Price: $" + minPrice);
-                                Console.WriteLine("Most Expensive Price: $" + maxPriceInSystem);
+                                Console.WriteLine("Average Price: $" + avgPrice.ToString("F2"));
+                                Console.WriteLine("Cheapest Price: $" + minPrice.ToString("F2"));
+                                Console.WriteLine("Most Expensive Price: $" + maxPriceInSystem.ToString("F2"));
                             }
                         }
                         break;
@@ -488,7 +489,7 @@
                         string searchText = Console.ReadLine();
 
                         List<Guest> matchingGuests = guests
-                            .Where(g => g.GuestName.Contains(searchText, StringComparison.OrdinalIgnoreCase))
+                            .Where(g => g.GuestName.ToLower().Contains(searchText.ToLower()))
                             .ToList();
 
                         Console.WriteLine();
@@ -508,7 +509,35 @@
                         break;
 
                     case 10:
-                        // TODO: Room Type Breakdown Report
+                        Console.WriteLine("--- Inventory & Pricing Breakdown ---");
+
+                        if (rooms.Count == 0)
+                        {
+                            Console.WriteLine("No rooms in the system to analyze.");
+                            break;
+                        }
+
+                        int singleCount = rooms.Count(r => r.RoomType.ToLower() == "single");
+                        string singleAvgStr = singleCount > 0
+                            ? "OMR " + rooms.Where(r => r.RoomType.ToLower() == "single").Average(r => r.PricePerNight).ToString("F2")
+                            : "N/A";
+
+                        int doubleCount = rooms.Count(r => r.RoomType.ToLower() == "double");
+                        string doubleAvgStr = doubleCount > 0
+                            ? "OMR " + rooms.Where(r => r.RoomType.ToLower() == "double").Average(r => r.PricePerNight).ToString("F2")
+                            : "N/A";
+
+                        int suiteCount = rooms.Count(r => r.RoomType.ToLower() == "suite");
+                        string suiteAvgStr = suiteCount > 0
+                            ? "OMR " + rooms.Where(r => r.RoomType.ToLower() == "suite").Average(r => r.PricePerNight).ToString("F2")
+                            : "N/A";
+
+                        double overallAvg = rooms.Average(r => r.PricePerNight);
+
+                        Console.WriteLine("Single Rooms Count: " + singleCount + " | Average Price: " + singleAvgStr);
+                        Console.WriteLine("Double Rooms Count: " + doubleCount + " | Average Price: " + doubleAvgStr);
+                        Console.WriteLine("Suite Rooms Count: " + suiteCount + " | Average Price: " + suiteAvgStr);
+                        Console.WriteLine("Overall Average Price: OMR " + overallAvg.ToString("F2"));
                         break;
 
                     case 11:

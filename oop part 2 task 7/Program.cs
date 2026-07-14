@@ -242,7 +242,26 @@
                         break;
 
                     case 4:
-                        // TODO: View All Rooms
+                        Console.WriteLine("--- View All Rooms ---");
+
+                        if (rooms.Count == 0)
+                        {
+                            Console.WriteLine("No rooms have been added yet.");
+                            break;
+                        }
+
+                        int totalRooms = rooms.Count();
+                        Console.WriteLine("Total Rooms: " + totalRooms);
+
+                        List<string> roomDetails = rooms
+                            .OrderBy(r => r.RoomNumber)
+                            .Select(r => "Room #" + r.RoomNumber + " | Type: " + r.RoomType + " | Price: $" + r.PricePerNight + " | Status: " + (r.IsAvailable ? "Available" : "Booked"))
+                            .ToList();
+
+                        foreach (string details in roomDetails)
+                        {
+                            Console.WriteLine(details);
+                        }
                         break;
 
                     case 5:

@@ -192,7 +192,7 @@
                         int nextIdNumber = guests.Count + 1;
                         string formattedId = "G00" + nextIdNumber;
 
-                        Guest newGuest = new Guest(formattedId, gName, 0, cDate, nights);
+                        Guest newGuest = new Guest(formattedId, gName,"Not Assigned", cDate, nights);
                         guests.Add(newGuest);
 
                         newGuest.DisplayGuest();
@@ -253,14 +253,14 @@
                         int totalRooms = rooms.Count();
                         Console.WriteLine("Total Rooms: " + totalRooms);
 
-                        List<string> roomDetails = rooms
+                        List<Room> sortedRooms = rooms
                             .OrderBy(r => r.RoomNumber)
-                            .Select(r => "Room #" + r.RoomNumber + " | Type: " + r.RoomType + " | Price: $" + r.PricePerNight + " | Status: " + (r.IsAvailable ? "Available" : "Booked"))
+                            .Select(r => r)
                             .ToList();
 
-                        foreach (string details in roomDetails)
+                        foreach (Room r in sortedRooms)
                         {
-                            Console.WriteLine(details);
+                            r.DisplayRoom();
                         }
                         break;
 
@@ -276,19 +276,124 @@
                         int totalGuests = guests.Count();
                         Console.WriteLine("Total Guests: " + totalGuests);
 
-                        List<string> guestDetails = guests
+                        List<Guest> sortedGuests = guests
                             .OrderBy(g => g.GuestName)
-                            .Select(g => "ID: " + g.GuestId + " | Name: " + g.GuestName + " | Room: " + g.RoomNumber + " | Check-in: " + g.CheckInDate + " | Nights: " + g.TotalNights)
+                            .Select(g => g)
                             .ToList();
 
-                        foreach (string details in guestDetails)
+                        foreach (Guest g in sortedGuests)
                         {
-                            Console.WriteLine(details);
+                            g.DisplayGuest();
                         }
                         break;
 
                     case 6:
-                        // TODO: Search & Filter Rooms
+
+                    
+                        Console.WriteLine("--- Room Search---");
+                        Console.WriteLine("1. Show all available rooms");
+                        Console.WriteLine("2. Filter by room type");
+                        Console.WriteLine("3. Filter by max price");
+                        Console.WriteLine("4. Room price statistics");
+                        Console.WriteLine("0. Back");
+                        Console.Write("Enter your choice: ");
+                        string subChoice = Console.ReadLine();
+
+                        if (subChoice == "1")
+                        {
+                            List<Room> availableRooms = rooms
+                                .Where(r => r.IsAvailable)
+                                .OrderBy(r => r.PricePerNight)
+                                .Select(r => r)
+                                .ToList();
+
+                     
+                            Console.WriteLine("Available Rooms Count: " + availableRooms.Count);
+                            if (availableRooms.Count == 0)
+                            {
+                                Console.WriteLine("No rooms found for the selected criteria.");
+                            }
+                            else
+                            {
+                                foreach (Room r in availableRooms)
+                                {
+                                    r.DisplayRoom();
+                                }
+                            }
+                        }
+                        else if (subChoice == "2")
+                        {
+                            Console.Write("Enter Room Type (Single / Double / Suite): ");
+                            string searchType = Console.ReadLine();
+
+                            List<Room> typeRooms = rooms
+                                .Where(r => r.RoomType.Equals(searchType, StringComparison.OrdinalIgnoreCase))
+                                .Select(r => r)
+                                .ToList();
+
+                            
+                            Console.WriteLine("Rooms Found: " + typeRooms.Count);
+                            if (typeRooms.Count == 0)
+                            {
+                                Console.WriteLine("No rooms found for the selected criteria.");
+                            }
+                            else
+                            {
+                                foreach (Room r in typeRooms)
+                                {
+                                    r.DisplayRoom();
+                                }
+                            }
+                        }
+                        else if (subChoice == "3")
+                        {
+                            Console.Write("Enter Maximum Price: ");
+                            double maxPrice = double.Parse(Console.ReadLine());
+
+                            List<Room> budgetRooms = rooms
+                                .Where(r => r.IsAvailable && r.PricePerNight <= maxPrice)
+                                .OrderBy(r => r.PricePerNight)
+                                .Select(r => r)
+                                .ToList();
+
+                            Console.WriteLine();
+                            Console.WriteLine("Rooms Found: " + budgetRooms.Count);
+                            if (budgetRooms.Count == 0)
+                            {
+                                Console.WriteLine("No rooms found for the selected criteria.");
+                            }
+                            else
+                            {
+                                foreach (Room r in budgetRooms)
+                                {
+                                    r.DisplayRoom();
+                                }
+                            }
+                        }
+                        else if (subChoice == "4")
+                        {
+                 
+                            Console.WriteLine("--- Room Statistics ---");
+
+                            if (rooms.Count == 0)
+                            {
+                                Console.WriteLine("No rooms in the system to calculate statistics.");
+                            }
+                            else
+                            {
+                                int totalRoomsCount = rooms.Count();
+                                int availableRoomsCount = rooms.Count(r => r.IsAvailable);
+                                double avgPrice = rooms.Average(r => r.PricePerNight);
+                                double minPrice = rooms.Min(r => r.PricePerNight);
+                                double maxPriceInSystem = rooms.Max(r => r.PricePerNight);
+
+                                Console.WriteLine("Total Rooms: " + totalRoomsCount);
+                                Console.WriteLine("Available Rooms: " + availableRoomsCount);
+                                Console.WriteLine("Average Price: $" + avgPrice);
+                                Console.WriteLine("Cheapest Price: $" + minPrice);
+                                Console.WriteLine("Most Expensive Price: $" + maxPriceInSystem);
+                            }
+                        }
                         break;
 
                     case 7:

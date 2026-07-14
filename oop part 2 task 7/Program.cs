@@ -3,7 +3,7 @@
     public class Room
     {
 
-        public int RoomNumber { get; set; }
+        public string RoomNumber { get; set; }
         public string RoomType { get; set; }
         public double PricePerNight { get; set; }
         public bool IsAvailable { get; set; }
@@ -15,7 +15,7 @@
         }
 
         // Parameterized Constructor
-        public Room(int roomNumber, string roomType, double pricePerNight, bool isAvailable)
+        public Room(string roomNumber, string roomType, double pricePerNight, bool isAvailable)
         {
             RoomNumber = roomNumber;
             RoomType = roomType;
@@ -36,9 +36,9 @@
     public class Guest
     {
 
-        public int GuestId { get; set; }
+        public string GuestId { get; set; }
         public string GuestName { get; set; }
-        public int RoomNumber { get; set; }
+        public string RoomNumber { get; set; }
         public string CheckInDate { get; set; }
         public int TotalNights { get; set; }
 
@@ -48,7 +48,7 @@
         }
 
         //Parameterized Constructor
-        public Guest(int guestId, string guestName, int roomNumber, string checkInDate, int totalNights)
+        public Guest(string guestId, string guestName, string roomNumber, string checkInDate, int totalNights)
         {
             GuestId = guestId;
             GuestName = guestName;
@@ -95,12 +95,12 @@
             List<Guest> guests = new List<Guest>();
 
             // Pre-load rooms with at least 6 rooms (Single, Double, Suite)
-            rooms.Add(new Room(101, "Single", 50.00, true));
-            rooms.Add(new Room(102, "Single", 50.00, true));
-            rooms.Add(new Room(201, "Double", 85.00, true));
-            rooms.Add(new Room(202, "Double", 85.00, true));
-            rooms.Add(new Room(301, "Suite", 150.00, true));
-            rooms.Add(new Room(302, "Suite", 200.00, true));
+            rooms.Add(new Room("101", "Single", 50.00, true));
+            rooms.Add(new Room("102", "Single", 50.00, true));
+            rooms.Add(new Room("201", "Double", 85.00, true));
+            rooms.Add(new Room("202", "Double", 85.00, true));
+            rooms.Add(new Room("301", "Suite", 150.00, true));
+            rooms.Add(new Room("302", "Suite", 200.00, true));
 
             while (true)
             {
@@ -133,13 +133,13 @@
                 switch (menuChoice)
                 {
                     case 1:
-
-                        Console.WriteLine();
                         Console.WriteLine("--- Add New Room ---");
 
                         Console.Write("Enter Room Number: ");
-                        int newRoomNum = int.Parse(Console.ReadLine());
-                        if (newRoomNum <= 0)
+                        string newRoomNum = Console.ReadLine();
+
+                        int parsedRoomNum = int.Parse(newRoomNum);
+                        if (parsedRoomNum <= 0)
                         {
                             Console.WriteLine("Room number must be positive.");
                             break;
@@ -172,9 +172,32 @@
                         break;
 
                     case 2:
-                        // TODO: Register New Guest
-                        break;
+               
+                        Console.WriteLine("--- Register New Guest ---");
 
+                        Console.Write("Enter Guest Name: ");
+                        string gName = Console.ReadLine();
+
+                        Console.Write("Enter Check-in Date: ");
+                        string cDate = Console.ReadLine();
+
+                        Console.Write("Enter Number of Nights: ");
+                        int nights = int.Parse(Console.ReadLine());
+                        if (nights <= 0)
+                        {
+                            Console.WriteLine("Number of nights must be positive.");
+                            break;
+                        }
+
+                        int nextIdNumber = guests.Count + 1;
+                        string formattedId = "G00" + nextIdNumber;
+
+                        Guest newGuest = new Guest(formattedId, gName, 0, cDate, nights);
+                        guests.Add(newGuest);
+
+                        newGuest.DisplayGuest();
+                        break;
+                        
                     case 3:
                         // TODO: Book a Room for a Guest
                         break;

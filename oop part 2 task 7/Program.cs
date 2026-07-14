@@ -482,7 +482,29 @@
                         break;
 
                     case 9:
-                        // TODO: Guest Lookup by Name
+                        Console.WriteLine("--- Search Guest by Name ---");
+
+                        Console.Write("Enter name or partial name: ");
+                        string searchText = Console.ReadLine();
+
+                        List<Guest> matchingGuests = guests
+                            .Where(g => g.GuestName.Contains(searchText, StringComparison.OrdinalIgnoreCase))
+                            .ToList();
+
+                        Console.WriteLine();
+                        Console.WriteLine("Matches Found: " + matchingGuests.Count());
+
+                        if (matchingGuests.Count() == 0)
+                        {
+                            Console.WriteLine("No guests matched that search.");
+                        }
+                        else
+                        {
+                            foreach (Guest g in matchingGuests)
+                            {
+                                g.DisplayGuest();
+                            }
+                        }
                         break;
 
                     case 10:

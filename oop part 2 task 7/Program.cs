@@ -265,7 +265,26 @@
                         break;
 
                     case 5:
-                        // TODO: View All Guests
+                        Console.WriteLine("--- View All Guests ---");
+
+                        if (guests.Count == 0)
+                        {
+                            Console.WriteLine("No guests have been registered yet.");
+                            break;
+                        }
+
+                        int totalGuests = guests.Count();
+                        Console.WriteLine("Total Guests: " + totalGuests);
+
+                        List<string> guestDetails = guests
+                            .OrderBy(g => g.GuestName)
+                            .Select(g => "ID: " + g.GuestId + " | Name: " + g.GuestName + " | Room: " + g.RoomNumber + " | Check-in: " + g.CheckInDate + " | Nights: " + g.TotalNights)
+                            .ToList();
+
+                        foreach (string details in guestDetails)
+                        {
+                            Console.WriteLine(details);
+                        }
                         break;
 
                     case 6:

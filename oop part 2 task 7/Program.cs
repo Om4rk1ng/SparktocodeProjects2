@@ -451,7 +451,34 @@
                         break;
 
                     case 8:
-                        // TODO: Update Room Price
+                        Console.WriteLine("--- Update Room Price ---");
+
+                        Console.Write("Enter Room Number: ");
+                        string searchRoomNum = Console.ReadLine();
+
+                        Room targetRoom = rooms.FirstOrDefault(r => r.RoomNumber == searchRoomNum);
+                        if (targetRoom == null)
+                        {
+                            Console.WriteLine("Room not found.");
+                            break;
+                        }
+
+                        Console.Write("Enter New Price Per Night: ");
+                        double newPriceInput = double.Parse(Console.ReadLine());
+                        if (newPriceInput <= 0)
+                        {
+                            Console.WriteLine("Price must be positive.");
+                            break;
+                        }
+
+                        double oldPrice = targetRoom.PricePerNight;
+                        targetRoom.PricePerNight = newPriceInput;
+
+                        Console.WriteLine();
+                        Console.WriteLine("Price updated successfully!");
+                        Console.WriteLine("Room Number: " + targetRoom.RoomNumber);
+                        Console.WriteLine("Old Price: $" + oldPrice.ToString("F2"));
+                        Console.WriteLine("New Price: $" + targetRoom.PricePerNight.ToString("F2"));
                         break;
 
                     case 9:

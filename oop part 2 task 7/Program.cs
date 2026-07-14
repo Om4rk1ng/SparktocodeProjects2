@@ -91,7 +91,154 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            List<Room> rooms = new List<Room>();
+            List<Guest> guests = new List<Guest>();
+
+            // Pre-load rooms with at least 6 rooms (Single, Double, Suite)
+            rooms.Add(new Room(101, "Single", 50.00, true));
+            rooms.Add(new Room(102, "Single", 50.00, true));
+            rooms.Add(new Room(201, "Double", 85.00, true));
+            rooms.Add(new Room(202, "Double", 85.00, true));
+            rooms.Add(new Room(301, "Suite", 150.00, true));
+            rooms.Add(new Room(302, "Suite", 200.00, true));
+
+            while (true)
+            {
+                Console.WriteLine("\n================================================");
+                Console.WriteLine("     GRAND VISTA HOTEL — MANAGEMENT SYSTEM      ");
+                Console.WriteLine("================================================");
+                Console.WriteLine("C# OOP — Phase 2 | Hotel Management System");
+                Console.WriteLine("------------------------------------------------");
+                Console.WriteLine(" 1. Add New Room");
+                Console.WriteLine(" 2. Register New Guest");
+                Console.WriteLine(" 3. Book a Room for a Guest");
+                Console.WriteLine(" 4. View All Rooms");
+                Console.WriteLine(" 5. View All Guests");
+                Console.WriteLine(" 6. Search & Filter Rooms");
+                Console.WriteLine(" 7. Guest & Booking Statistics");
+                Console.WriteLine(" 8. Update Room Price");
+                Console.WriteLine(" 9. Guest Lookup by Name");
+                Console.WriteLine("10. Room Type Breakdown Report");
+                Console.WriteLine("11. Check Out a Guest");
+                Console.WriteLine("12. Remove Unavailable Rooms");
+                Console.WriteLine("13. Extend Guest Stay");
+                Console.WriteLine("14. Highest Revenue Booking");
+                Console.WriteLine("15. Guest Pagination Viewer");
+                Console.WriteLine(" 0. Exit");
+                Console.WriteLine("================================================");
+                Console.Write("Select an option (0-15): ");
+
+                int menuChoice = int.Parse(Console.ReadLine());
+
+                switch (menuChoice)
+                {
+                    case 1:
+
+                        Console.WriteLine();
+                        Console.WriteLine("--- Add New Room ---");
+
+                        Console.Write("Enter Room Number: ");
+                        int newRoomNum = int.Parse(Console.ReadLine());
+                        if (newRoomNum <= 0)
+                        {
+                            Console.WriteLine("Room number must be positive.");
+                            break;
+                        }
+
+                        bool roomExists = rooms.Any(r => r.RoomNumber == newRoomNum);
+                        if (roomExists)
+                        {
+                            Console.WriteLine("Room already exists.");
+                            break;
+                        }
+
+                        Console.Write("Enter Room Type (Single / Double / Suite): ");
+                        string newRoomType = Console.ReadLine();
+
+                        Console.Write("Enter Price Per Night: ");
+                        double newPrice = double.Parse(Console.ReadLine());
+                        if (newPrice <= 0)
+                        {
+                            Console.WriteLine("Price must be positive.");
+                            break;
+                        }
+
+                        Room newlyCreatedRoom = new Room(newRoomNum, newRoomType, newPrice, true);
+                        rooms.Add(newlyCreatedRoom);
+
+                        Console.WriteLine();
+                        newlyCreatedRoom.DisplayRoom();
+                        Console.WriteLine("Total rooms in inventory: " + rooms.Count);
+                        break;
+
+                    case 2:
+                        // TODO: Register New Guest
+                        break;
+
+                    case 3:
+                        // TODO: Book a Room for a Guest
+                        break;
+
+                    case 4:
+                        // TODO: View All Rooms
+                        break;
+
+                    case 5:
+                        // TODO: View All Guests
+                        break;
+
+                    case 6:
+                        // TODO: Search & Filter Rooms
+                        break;
+
+                    case 7:
+                        // TODO: Guest & Booking Statistics
+                        break;
+
+                    case 8:
+                        // TODO: Update Room Price
+                        break;
+
+                    case 9:
+                        // TODO: Guest Lookup by Name
+                        break;
+
+                    case 10:
+                        // TODO: Room Type Breakdown Report
+                        break;
+
+                    case 11:
+                        // TODO: Check Out a Guest
+                        break;
+
+                    case 12:
+                        // TODO: Remove Unavailable Rooms
+                        break;
+
+                    case 13:
+                        // TODO: Extend Guest Stay
+                        break;
+
+                    case 14:
+                        // TODO: Highest Revenue Booking
+                        break;
+
+                    case 15:
+                        // TODO: Guest Pagination Viewer
+                        break;
+
+                    case 0:
+                        Console.WriteLine("Exiting the system. Thank you for using Grand Vista Hotel Management!");
+                        return;
+
+                    default:
+                        Console.WriteLine("Invalid option. Please choose a number between 0 and 15.");
+                        break;
+                }
+            }
+
+
+
         }
     }
 

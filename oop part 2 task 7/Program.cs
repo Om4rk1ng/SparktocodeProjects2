@@ -508,6 +508,7 @@
                         break;
 
                     case 10:
+
                         Console.WriteLine("--- Inventory & Pricing Breakdown ---");
 
                         if (rooms.Count == 0)
@@ -540,6 +541,7 @@
                         break;
 
                     case 11:
+
                         Console.WriteLine("--- Guest Checkout ---");
 
                         Console.Write("Enter Guest ID to check out: ");
@@ -601,7 +603,54 @@
                         break;
 
                     case 12:
-                        // TODO: Remove Unavailable Rooms
+
+                       
+                        Console.WriteLine("--- Decommission Rooms ---");
+
+                       
+                        List<Room> removableRooms = rooms
+                            .Where(r => !r.IsAvailable && !guests.Any(g => g.RoomNumber == r.RoomNumber))
+                            .OrderBy(r => r.RoomNumber)
+                            .ToList();
+
+                        
+                        if (removableRooms.Count == 0)
+                        {
+                            Console.WriteLine("All unavailable rooms are currently occupied. No rooms can be decommissioned.");
+                            break;
+                        }
+
+                        
+                        Console.WriteLine("Safely Removable Rooms (Unavailable but Unoccupied):");
+                        foreach (Room r in removableRooms)
+                        {
+                            r.DisplayRoom();
+                        }
+
+                        
+                        
+                        Console.Write("Found " + removableRooms.Count + " removable room(s). Confirm decommissioning? (Y/N): ");
+                        string confirmInput = Console.ReadLine();
+
+                        if (confirmInput.ToLower() == "y")
+                        {
+                            
+                            rooms.RemoveAll(r => !r.IsAvailable && !guests.Any(g => g.RoomNumber == r.RoomNumber));
+
+                           
+                            Console.WriteLine("Rooms decommissioned successfully!");
+                            Console.WriteLine("Updated Total Room Count: " + rooms.Count);
+
+                            Console.WriteLine("\nRemaining Rooms in System:");
+                            rooms
+                                .Select(r => "Room #" + r.RoomNumber + " (" + r.RoomType + ")")
+                                .ToList()
+                                .ForEach(Console.WriteLine);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Operation cancelled. No rooms were removed.");
+                        }
                         break;
 
                     case 13:

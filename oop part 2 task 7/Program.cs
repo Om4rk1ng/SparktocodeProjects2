@@ -638,7 +638,7 @@
                             rooms.RemoveAll(r => !r.IsAvailable && !guests.Any(g => g.RoomNumber == r.RoomNumber));
 
                            
-                            Console.WriteLine("Rooms decommissioned successfully!");
+                            Console.WriteLine("Rooms decommissioned successfully!!!!!!!!!!!!!!");
                             Console.WriteLine("Updated Total Room Count: " + rooms.Count);
 
                             Console.WriteLine("\nRemaining Rooms in System:");

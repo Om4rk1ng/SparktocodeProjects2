@@ -654,7 +654,46 @@
                         break;
 
                     case 13:
-                        // TODO: Extend Guest Stay
+
+                        Console.WriteLine("--- Extend Guest Stay ---");
+
+                        Console.Write("Enter Guest ID: ");
+                        string searchGuestId = Console.ReadLine();
+
+                        Guest extendGuest = guests.FirstOrDefault(g => g.GuestId == searchGuestId);
+                        if (extendGuest == null)
+                        {
+                            Console.WriteLine("Guest not found.");
+                            break;
+                        }
+
+                        if (extendGuest.RoomNumber == "Not Assigned")
+                        {
+                            Console.WriteLine("This guest has no active booking to extend.");
+                            break;
+                        }
+
+                        Console.Write("Enter number of additional nights: ");
+                        int additionalNights = int.Parse(Console.ReadLine());
+                        if (additionalNights <= 0)
+                        {
+                            Console.WriteLine("Invalid input. Additional nights must be a positive integer.");
+                            break;
+                        }
+
+                        Room guestRoom = rooms.FirstOrDefault(r => r.RoomNumber == extendGuest.RoomNumber);
+                        if (guestRoom == null)
+                        {
+                            Console.WriteLine("Error: Assigned room not found in the system.");
+                            break;
+                        }
+
+                        extendGuest.TotalNights += additionalNights;
+                        double newCost = extendGuest.CalculateTotalCost(guestRoom);
+
+                        Console.WriteLine("Stay extended successfully!");
+                        Console.WriteLine("Updated Total Nights: " + extendGuest.TotalNights);
+                        Console.WriteLine("New Total Cost: OMR " + newCost.ToString("F2"));
                         break;
 
                     case 14:

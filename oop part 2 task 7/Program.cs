@@ -706,7 +706,7 @@
                             break;
                         }
 
-                        // Filter, sort by cost, and use Take(1) to get the top guest list
+                       
                         List<Guest> highestGuestList = guests
                             .Where(g => g.RoomNumber != "Not Assigned")
                             .OrderByDescending(g => g.CalculateTotalCost(rooms.FirstOrDefault(r => r.RoomNumber == g.RoomNumber)))
@@ -727,7 +727,38 @@
                         break;
 
                     case 15:
-                        // TODO: Guest Pagination Viewer
+
+                        Console.WriteLine("--- Paginated Guest List ---");
+
+                        if (guests.Count == 0)
+                        {
+                            Console.WriteLine("No guests in the system to display.");
+                            break;
+                        }
+
+                        int pageSize = 3;
+                         totalGuests = guests.Count;
+
+                        
+                        int totalPages = (totalGuests + pageSize - 1) / pageSize;
+
+                        Console.Write("Enter page number (1 to " + totalPages + "): ");
+                        int pageNumber = int.Parse(Console.ReadLine());
+
+                        if (pageNumber < 1 || pageNumber > totalPages)
+                        {
+                            Console.WriteLine("That page does not exist.");
+                            break;
+                        }
+                        List<Guest> pagedGuests = guests
+                            .Skip((pageNumber - 1) * pageSize)
+                            .Take(pageSize)
+                            .ToList();
+                        Console.WriteLine("--- Page " + pageNumber + " of " + totalPages + " ---");
+                        foreach (Guest g in pagedGuests)
+                        {
+                            g.DisplayGuest();
+                        }
                         break;
 
                     case 0:

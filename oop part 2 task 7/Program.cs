@@ -697,7 +697,33 @@
                         break;
 
                     case 14:
-                        // TODO: Highest Revenue Booking
+
+                        Console.WriteLine("--- Highest-Revenue Booking ---");
+
+                        if (!guests.Any(g => g.RoomNumber != "Not Assigned"))
+                        {
+                            Console.WriteLine("No active bookings recorded.");
+                            break;
+                        }
+
+                        // Filter, sort by cost, and use Take(1) to get the top guest list
+                        List<Guest> highestGuestList = guests
+                            .Where(g => g.RoomNumber != "Not Assigned")
+                            .OrderByDescending(g => g.CalculateTotalCost(rooms.FirstOrDefault(r => r.RoomNumber == g.RoomNumber)))
+                            .Take(1)
+                            .ToList();
+
+                        if (highestGuestList.Count > 0)
+                        {
+                            Guest highestGuest = highestGuestList[0];
+                            Room highestGuestRoom = rooms.FirstOrDefault(r => r.RoomNumber == highestGuest.RoomNumber);
+                            double finalCost = highestGuest.CalculateTotalCost(highestGuestRoom);
+
+                            Console.WriteLine("Top Earning Booking:");
+                            Console.WriteLine("Guest Name: " + highestGuest.GuestName);
+                            Console.WriteLine("Room Number: " + highestGuest.RoomNumber);
+                            Console.WriteLine("Total Revenue: OMR " + finalCost.ToString("F2"));
+                        }
                         break;
 
                     case 15:

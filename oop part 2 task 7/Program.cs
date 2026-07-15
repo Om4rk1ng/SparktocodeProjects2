@@ -475,7 +475,7 @@
                         double oldPrice = targetRoom.PricePerNight;
                         targetRoom.PricePerNight = newPriceInput;
 
-                        Console.WriteLine();
+                        
                         Console.WriteLine("Price updated successfully!");
                         Console.WriteLine("Room Number: " + targetRoom.RoomNumber);
                         Console.WriteLine("Old Price: $" + oldPrice.ToString("F2"));
@@ -492,7 +492,6 @@
                             .Where(g => g.GuestName.ToLower().Contains(searchText.ToLower()))
                             .ToList();
 
-                        Console.WriteLine();
                         Console.WriteLine("Matches Found: " + matchingGuests.Count());
 
                         if (matchingGuests.Count() == 0)
@@ -541,7 +540,64 @@
                         break;
 
                     case 11:
-                        // TODO: Check Out a Guest
+                        Console.WriteLine("--- Guest Checkout ---");
+
+                        Console.Write("Enter Guest ID to check out: ");
+                        string checkoutId = Console.ReadLine();
+
+                        Guest checkoutGuest = guests.FirstOrDefault(g => g.GuestId == checkoutId);
+                        if (checkoutGuest == null)
+                        {
+                            Console.WriteLine("Guest not found.");
+                            break;
+                        }
+
+                        if (checkoutGuest.RoomNumber == "Not Assigned")
+                        {
+                            Console.WriteLine("This guest has no active booking.");
+                            break;
+                        }
+
+                        Room linkedRoom = rooms.FirstOrDefault(r => r.RoomNumber == checkoutGuest.RoomNumber);
+                        if (linkedRoom == null)
+                        {
+                            Console.WriteLine("Error: Assigned room not found in the system.");
+                            break;
+                        }
+
+                        double tCost = checkoutGuest.CalculateTotalCost(linkedRoom);
+
+                        
+                        Console.WriteLine("--- Final Bill ---");
+                        Console.WriteLine("Guest Name: " + checkoutGuest.GuestName);
+                        Console.WriteLine("Room Number: " + linkedRoom.RoomNumber);
+                        Console.WriteLine("Room Type: " + linkedRoom.RoomType);
+                        Console.WriteLine("Check-in Date: " + checkoutGuest.CheckInDate);
+                        Console.WriteLine("Total Nights: " + checkoutGuest.TotalNights);
+                        Console.WriteLine("Price Per Night: OMR " + linkedRoom.PricePerNight.ToString("F2"));
+                        Console.WriteLine("Total Cost: OMR " + tCost.ToString("F2"));
+                        
+
+                        Console.Write("Confirm checkout (Y/N): ");
+                        string confirm = Console.ReadLine();
+
+                        if (confirm.ToLower() == "y")
+                        {
+                            linkedRoom.IsAvailable = true;
+                            guests.Remove(checkoutGuest);
+
+                            
+                            Console.WriteLine("Checkout completed successfully.");
+                            Console.WriteLine("Total Registered Guests Now: " + guests.Count);
+                            Console.WriteLine("Total Rooms in System: " + rooms.Count);
+
+                            bool isRoomFreeNow = rooms.Any(r => r.RoomNumber == linkedRoom.RoomNumber && r.IsAvailable);
+                            Console.WriteLine("Room " + linkedRoom.RoomNumber + " is now available: " + isRoomFreeNow);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Checkout cancelled. No changes were made.");
+                        }
                         break;
 
                     case 12:

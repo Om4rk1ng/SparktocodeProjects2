@@ -18,3 +18,11 @@ CREATE TABLE Employee (
     CONSTRAINT PK_Employee PRIMARY KEY (Ssn)
 );
 
+CREATE TABLE Department (
+    Dnumber           INT         NOT NULL,
+    Dname             VARCHAR(50) NOT NULL UNIQUE,
+    Mgr_ssn           CHAR(9)     NULL,
+    Mgr_start_date    DATE        NULL,
+    NumberOfEmployees INT         NOT NULL DEFAULT 0 CHECK (NumberOfEmployees >= 0),
+    CONSTRAINT PK_Department PRIMARY KEY (Dnumber)
+);

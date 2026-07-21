@@ -115,3 +115,28 @@ VALUES
     ('100000001', 'Aisha', 'F', '2015-05-10', 'Daughter');
 GO
 
+UPDATE Employee
+SET Salary = Salary * 1.10
+WHERE Ssn = '100000002';
+
+UPDATE Employee
+SET Dno = 2
+WHERE Ssn = '100000002';
+
+UPDATE Project
+SET Plocation = 'Sohar'
+WHERE Pnumber = 101;
+
+UPDATE Works_On
+SET Hours = 35.0
+WHERE Essn = '100000002' AND Pno = 101;
+
+ALTER TABLE Dependent 
+    ALTER COLUMN Relationship VARCHAR(50) NULL;
+GO
+
+UPDATE Dependent
+SET Relationship = 'Daughter (Legal Guardian)'
+WHERE Essn = '100000001' AND Dependent_name = 'Aisha';
+GO
+

@@ -56,3 +56,10 @@ CREATE TABLE Works_On (
     Hours DECIMAL(4, 1) NOT NULL DEFAULT 0.0 CHECK (Hours >= 0.0),
     CONSTRAINT PK_Works_On PRIMARY KEY (Essn, Pno)
 );
+GO
+
+ALTER TABLE Employee
+    ADD CONSTRAINT FK_Employee_Department FOREIGN KEY (Dno) 
+        REFERENCES Department(Dnumber),
+    CONSTRAINT FK_Employee_Supervisor FOREIGN KEY (supervisor) 
+        REFERENCES Employee(Ssn);

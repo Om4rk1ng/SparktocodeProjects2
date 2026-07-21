@@ -101,3 +101,17 @@ VALUES
 SET Mgr_ssn = '100000001' 
 WHERE Dnumber = 1;
 
+INSERT INTO Project (Pnumber, Pname, Plocation, Dnum)
+VALUES 
+    (101, 'Cloud Migration', 'Muscat', 1),
+    (102, 'HR Automation', 'Seeb', 2);
+
+    INSERT INTO Works_On (Essn, Pno, Hours)
+VALUES 
+    ('100000002', 101, 25.5);
+
+    INSERT INTO Dependent (Essn, Dependent_name, Sex, Bdate, Relationship)
+VALUES 
+    ('100000001', 'Aisha', 'F', '2015-05-10', 'Daughter');
+GO
+

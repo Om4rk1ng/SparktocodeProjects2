@@ -1,41 +1,15 @@
 <Solution>
-  <Configurations>
-    <BuildType Name="Debug" />
-    <BuildType Name="Default" />
-    <BuildType Name="Release" />
-  </Configurations>
-  <Project Path="2nd_c#_Program/2nd_c#_Program.csproj" Id="e65b3b10-bf00-48f6-9268-f82291eb2098">
-    <BuildType Solution="Default|*" Project="Release" />
-  </Project>
-  <Project Path="3rd_C#_program/3rd_C#_program.csproj" Id="f79c5f28-5514-4a14-ad7f-01381a7d18f1">
-    <BuildType Solution="Default|*" Project="Release" />
-  </Project>
-  <Project Path="app1/app1.csproj">
-    <BuildType Solution="Default|*" Project="Release" />
-  </Project>
-  <Project Path="C# Fundamentals - Part 1 task/C# Fundamentals - Part 1 task.csproj" Id="3fe38efa-245e-4f3b-ac42-55e35a134993">
-    <BuildType Solution="Default|*" Project="Release" />
-  </Project>
-  <Project Path="C# Fundamentals - Part 4/C# Fundamentals - Part 4.csproj" Id="d4d78f89-d25c-4163-b99d-7294013d14b8">
-    <BuildType Solution="Default|*" Project="Release" />
-  </Project>
-  <Project Path="C# Fundamentals Part 3/C# Fundamentals Part 3.csproj" Id="e9976182-593a-4a77-9728-c5d18ca3572c">
-    <BuildType Solution="Default|*" Project="Release" />
-  </Project>
-  <Project Path="C# Fundamentals Part 5/C# Fundamentals Part 5.csproj" Id="dd54bc32-bee7-4515-949e-ed15876b118e">
-    <BuildType Solution="Default|*" Project="Release" />
-  </Project>
-  <Project Path="c# fundamentals- part 2 task 2 loops_error_handling/c# fundamentals- part 2 task 2 loops_error_handling.csproj" Id="efd0e987-ff93-4a22-911d-bba6d4cf5d60">
-    <BuildType Solution="Default|*" Project="Release" />
-  </Project>
-  <Project Path="Mini Compound Project Banking Management App/Mini Compound Project Banking Management App.csproj" Id="0043e2b8-6bf9-44be-a089-a2600671567f">
-    <BuildType Solution="Default|*" Project="Release" />
-  </Project>
+  <Project Path="2nd_c#_Program/2nd_c#_Program.csproj" Id="e65b3b10-bf00-48f6-9268-f82291eb2098" />
+  <Project Path="3rd_C#_program/3rd_C#_program.csproj" Id="f79c5f28-5514-4a14-ad7f-01381a7d18f1" />
+  <Project Path="app1/app1.csproj" />
+  <Project Path="C# Fundamentals - Part 1 task/C# Fundamentals - Part 1 task.csproj" Id="3fe38efa-245e-4f3b-ac42-55e35a134993" />
+  <Project Path="C# Fundamentals - Part 4/C# Fundamentals - Part 4.csproj" Id="d4d78f89-d25c-4163-b99d-7294013d14b8" />
+  <Project Path="C# Fundamentals Part 3/C# Fundamentals Part 3.csproj" Id="e9976182-593a-4a77-9728-c5d18ca3572c" />
+  <Project Path="C# Fundamentals Part 5/C# Fundamentals Part 5.csproj" Id="dd54bc32-bee7-4515-949e-ed15876b118e" />
+  <Project Path="c# fundamentals- part 2 task 2 loops_error_handling/c# fundamentals- part 2 task 2 loops_error_handling.csproj" Id="efd0e987-ff93-4a22-911d-bba6d4cf5d60" />
+  <Project Path="Mini Compound Project Banking Management App/Mini Compound Project Banking Management App.csproj" Id="0043e2b8-6bf9-44be-a089-a2600671567f" />
   <Project Path="OOP Part 1 task 6/OOP Part 1 task 6.csproj" Id="bb461671-8232-4fd4-a337-a9d3d6bd0a51">
-    <BuildType Solution="Default|*" Project="Release" />
     <Build Solution="Debug|*" Project="false" />
   </Project>
-  <Project Path="oop part 2 task 7/oop part 2 task 7.csproj" Id="77cb1ac6-bbdb-4f0e-864e-6f604afe4282">
-    <BuildType Solution="Default|*" Project="Release" />
-  </Project>
+  <Project Path="oop part 2 task 7/oop part 2 task 7.csproj" Id="77cb1ac6-bbdb-4f0e-864e-6f604afe4282" />
 </Solution>

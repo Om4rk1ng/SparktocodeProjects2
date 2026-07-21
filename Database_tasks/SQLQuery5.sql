@@ -32,3 +32,11 @@ CREATE TABLE Dept_Locations (
     Dlocation VARCHAR(50) NOT NULL,
     CONSTRAINT PK_Dept_Locations PRIMARY KEY (Dnumber, Dlocation)
 );
+
+CREATE TABLE Project (
+    Pnumber   INT         NOT NULL,
+    Pname     VARCHAR(50) NOT NULL UNIQUE,
+    Plocation VARCHAR(50) NULL,
+    Dnum      INT         NOT NULL,
+    CONSTRAINT PK_Project PRIMARY KEY (Pnumber)
+);

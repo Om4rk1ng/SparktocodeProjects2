@@ -13,10 +13,11 @@ CREATE TABLE Employee (
     Sex         CHAR(1)        NULL CHECK (Sex IN ('M', 'F')),
     Bdate       DATE           NULL,
     Salary      DECIMAL(10, 2) NULL CHECK (Salary > 0),
-    Dno         INT            NULL,
-    supervisor  CHAR(9)        NULL,
+    Dno         INT            NOT NULL, 
+    supervisor  CHAR(9)        NULL,     
     CONSTRAINT PK_Employee PRIMARY KEY (Ssn)
 );
+GO
 
 CREATE TABLE Department (
     Dnumber           INT         NOT NULL,
@@ -26,29 +27,24 @@ CREATE TABLE Department (
     NumberOfEmployees INT         NOT NULL DEFAULT 0 CHECK (NumberOfEmployees >= 0),
     CONSTRAINT PK_Department PRIMARY KEY (Dnumber)
 );
+GO
 
 CREATE TABLE Dept_Locations (
     Dnumber   INT         NOT NULL,
     Dlocation VARCHAR(50) NOT NULL,
     CONSTRAINT PK_Dept_Locations PRIMARY KEY (Dnumber, Dlocation)
 );
+GO
 
 CREATE TABLE Project (
     Pnumber   INT         NOT NULL,
-    Pname     VARCHAR(50) NOT NULL UNIQUE,
+    Pname     VARCHAR(50) NOT NULL UNIQUE, 
     Plocation VARCHAR(50) NULL,
-    Dnum      INT         NOT NULL,
+    Dnum      INT         NOT NULL,        
     CONSTRAINT PK_Project PRIMARY KEY (Pnumber)
 );
+GO
 
-CREATE TABLE Dependent (
-    Essn           CHAR(9)     NOT NULL,
-    Dependent_name VARCHAR(50) NOT NULL,
-    Sex            CHAR(1)     NULL CHECK (Sex IN ('M', 'F')),
-    Bdate          DATE        NULL,
-    Relationship   VARCHAR(20) NULL,
-    CONSTRAINT PK_Dependent PRIMARY KEY (Essn, Dependent_name)
-);
 
 CREATE TABLE Works_On (
     Essn  CHAR(9)       NOT NULL,
@@ -58,13 +54,36 @@ CREATE TABLE Works_On (
 );
 GO
 
-ALTER TABLE Employee ADD CONSTRAINT FK_Employee_Department FOREIGN KEY (Dno) REFERENCES Department(Dnumber);
-ALTER TABLE Employee ADD CONSTRAINT FK_Employee_Supervisor FOREIGN KEY (supervisor) REFERENCES Employee(Ssn);
-ALTER TABLE Department ADD CONSTRAINT FK_Department_Manager FOREIGN KEY (Mgr_ssn) REFERENCES Employee(Ssn);
+
+CREATE TABLE Dependent (
+    Essn           CHAR(9)     NOT NULL,
+    Dependent_name VARCHAR(50) NOT NULL,
+    Sex            CHAR(1)     NULL CHECK (Sex IN ('M', 'F')),
+    Bdate          DATE        NULL,
+    Relationship   VARCHAR(20) NULL,
+    CONSTRAINT PK_Dependent PRIMARY KEY (Essn, Dependent_name)
+);
+GO
+
+
+
+
+ALTER TABLE Employee ADD CONSTRAINT FK_WORKS_FOR FOREIGN KEY (Dno) REFERENCES Department(Dnumber);
+
+
+ALTER TABLE Employee ADD CONSTRAINT FK_SUPERVISION FOREIGN KEY (supervisor) REFERENCES Employee(Ssn);
+
+
+ALTER TABLE Department ADD CONSTRAINT FK_MANAGES FOREIGN KEY (Mgr_ssn) REFERENCES Employee(Ssn);
+
+
 ALTER TABLE Dept_Locations ADD CONSTRAINT FK_DeptLocations_Department FOREIGN KEY (Dnumber) REFERENCES Department(Dnumber);
-ALTER TABLE Project ADD CONSTRAINT FK_Project_Department FOREIGN KEY (Dnum) REFERENCES Department(Dnumber);
-ALTER TABLE Works_On ADD CONSTRAINT FK_WorksOn_Employee FOREIGN KEY (Essn) REFERENCES Employee(Ssn);
-ALTER TABLE Works_On ADD CONSTRAINT FK_WorksOn_Project FOREIGN KEY (Pno) REFERENCES Project(Pnumber);
-ALTER TABLE Dependent ADD CONSTRAINT FK_Dependent_Employee FOREIGN KEY (Essn) REFERENCES Employee(Ssn);
+
+ALTER TABLE Project ADD CONSTRAINT FK_CONTROLS FOREIGN KEY (Dnum) REFERENCES Department(Dnumber);
+
+ALTER TABLE Works_On ADD CONSTRAINT FK_WORKS_ON_Employee FOREIGN KEY (Essn) REFERENCES Employee(Ssn);
+ALTER TABLE Works_On ADD CONSTRAINT FK_WORKS_ON_Project FOREIGN KEY (Pno) REFERENCES Project(Pnumber);
+
+ALTER TABLE Dependent ADD CONSTRAINT FK_DEPENDENTS_OF FOREIGN KEY (Essn) REFERENCES Employee(Ssn);
 GO
 

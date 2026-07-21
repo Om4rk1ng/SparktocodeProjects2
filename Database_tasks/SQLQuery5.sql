@@ -40,3 +40,19 @@ CREATE TABLE Project (
     Dnum      INT         NOT NULL,
     CONSTRAINT PK_Project PRIMARY KEY (Pnumber)
 );
+
+CREATE TABLE Dependent (
+    Essn           CHAR(9)     NOT NULL,
+    Dependent_name VARCHAR(50) NOT NULL,
+    Sex            CHAR(1)     NULL CHECK (Sex IN ('M', 'F')),
+    Bdate          DATE        NULL,
+    Relationship   VARCHAR(20) NULL,
+    CONSTRAINT PK_Dependent PRIMARY KEY (Essn, Dependent_name)
+);
+
+CREATE TABLE Works_On (
+    Essn  CHAR(9)       NOT NULL,
+    Pno   INT           NOT NULL,
+    Hours DECIMAL(4, 1) NOT NULL DEFAULT 0.0 CHECK (Hours >= 0.0),
+    CONSTRAINT PK_Works_On PRIMARY KEY (Essn, Pno)
+);

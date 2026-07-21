@@ -140,3 +140,19 @@ SET Relationship = 'Daughter (Legal Guardian)'
 WHERE Essn = '100000001' AND Dependent_name = 'Aisha';
 GO
 
+
+-- Nullify foreign key references where Employee is a Manager
+UPDATE Department
+    SET Mgr_ssn = NULL
+    WHERE Mgr_ssn = '100000001';
+-- Nullify foreign keys where Employee is a Supervisor
+    UPDATE Employee
+    SET supervisor = NULL
+    WHERE supervisor = '100000001';
+-- Delete child records in dependent and junction tables
+    DELETE FROM Dependent WHERE Essn = '100000001';
+    DELETE FROM Works_On   WHERE Essn = '100000001';
+
+-- delete the target Employee row
+    DELETE FROM Employee
+    WHERE Ssn = '100000001';

@@ -58,8 +58,13 @@ CREATE TABLE Works_On (
 );
 GO
 
-ALTER TABLE Employee
-    ADD CONSTRAINT FK_Employee_Department FOREIGN KEY (Dno) 
-        REFERENCES Department(Dnumber),
-    CONSTRAINT FK_Employee_Supervisor FOREIGN KEY (supervisor) 
-        REFERENCES Employee(Ssn);
+ALTER TABLE Employee ADD CONSTRAINT FK_Employee_Department FOREIGN KEY (Dno) REFERENCES Department(Dnumber);
+ALTER TABLE Employee ADD CONSTRAINT FK_Employee_Supervisor FOREIGN KEY (supervisor) REFERENCES Employee(Ssn);
+ALTER TABLE Department ADD CONSTRAINT FK_Department_Manager FOREIGN KEY (Mgr_ssn) REFERENCES Employee(Ssn);
+ALTER TABLE Dept_Locations ADD CONSTRAINT FK_DeptLocations_Department FOREIGN KEY (Dnumber) REFERENCES Department(Dnumber);
+ALTER TABLE Project ADD CONSTRAINT FK_Project_Department FOREIGN KEY (Dnum) REFERENCES Department(Dnumber);
+ALTER TABLE Works_On ADD CONSTRAINT FK_WorksOn_Employee FOREIGN KEY (Essn) REFERENCES Employee(Ssn);
+ALTER TABLE Works_On ADD CONSTRAINT FK_WorksOn_Project FOREIGN KEY (Pno) REFERENCES Project(Pnumber);
+ALTER TABLE Dependent ADD CONSTRAINT FK_Dependent_Employee FOREIGN KEY (Essn) REFERENCES Employee(Ssn);
+GO
+

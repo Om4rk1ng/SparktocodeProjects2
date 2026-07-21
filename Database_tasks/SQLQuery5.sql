@@ -87,3 +87,17 @@ ALTER TABLE Works_On ADD CONSTRAINT FK_WORKS_ON_Project FOREIGN KEY (Pno) REFERE
 ALTER TABLE Dependent ADD CONSTRAINT FK_DEPENDENTS_OF FOREIGN KEY (Essn) REFERENCES Employee(Ssn);
 GO
 
+INSERT INTO Department (Dnumber, Dname, Mgr_ssn, Mgr_start_date)
+VALUES 
+    (1, 'Engineering', NULL, '2023-01-15'),
+    (2, 'Human Resources', NULL, '2022-06-01');
+
+    INSERT INTO Employee (Ssn, Fname, Minit, Lname, Address, Sex, Bdate, Salary, Dno, supervisor)
+VALUES 
+    ('100000001', 'Ali', 'M', 'Al-Busaidi', 'Muscat', 'M', '1985-04-12', 3500.00, 1, NULL),
+    ('100000002', 'Sara', 'A', 'Al-Harthy', 'Seeb', 'F', '1992-09-20', 2200.00, 1, '100000001');
+
+    UPDATE Department 
+SET Mgr_ssn = '100000001' 
+WHERE Dnumber = 1;
+

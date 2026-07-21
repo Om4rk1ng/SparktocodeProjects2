@@ -26,3 +26,9 @@ CREATE TABLE Department (
     NumberOfEmployees INT         NOT NULL DEFAULT 0 CHECK (NumberOfEmployees >= 0),
     CONSTRAINT PK_Department PRIMARY KEY (Dnumber)
 );
+
+CREATE TABLE Dept_Locations (
+    Dnumber   INT         NOT NULL,
+    Dlocation VARCHAR(50) NOT NULL,
+    CONSTRAINT PK_Dept_Locations PRIMARY KEY (Dnumber, Dlocation)
+);
